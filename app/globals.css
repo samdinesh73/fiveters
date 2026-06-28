@@ -1,8 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Caveat:wght@400;500;700&display=swap');
 @import "tailwindcss";
-
+html{overflow-x:hidden !important;}
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #9a0002;
+  --secondary: #efe6dd;
+  --font-heading: 'Inter Tight', sans-serif;
+  --font-body: 'Instrument Sans', sans-serif;
+
+  /* Mobile-first responsive font sizes */
+  --text-h1: clamp(28px, 5vw, 76px);
+  --text-h2: clamp(24px, 4vw, 56px);
+  --text-h3: clamp(20px, 3.5vw, 40px);
+  --text-h4: clamp(16px, 3.5vw, 40px);
+  --text-body: clamp(14px, 2vw, 18px);
+  --text-sm: clamp(12px, 1.5vw, 16px);
+  
+  /* Line heights */
+  --lh-tight: 1.02;
+  --lh-snug: 1.1;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* Letter spacing */
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.02em;
+
+  /* Responsive spacing */
+  /* --space-video-x: clamp(12px, 2vw, 32px);
+  --space-video-y: clamp(8px, 1.5vw, 24px); */
+  --space-video-x: 10px;
+  --space-video-y: 10px;
+  --radius-video: clamp(12px, 2vw, 20px);
+
+  /* Theme variables */
+  --surface: rgba(255,255,255,0.12);
+  --surface-strong: rgba(255,255,255,0.18);
+  --panel: rgba(255,255,255,0.22);
+  --text-muted: rgba(23,23,23,0.72);
+  --shadow: 0 20px 50px rgba(2,6,23,0.25);
 }
 
 @theme inline {
@@ -16,11 +54,91 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --surface: rgba(15, 23, 42, 0.32);
+    --surface-strong: rgba(30, 41, 59, 0.4);
+    --panel: rgba(30, 41, 59, 0.5);
+    --text-muted: rgba(229,231,235,0.74);
+    --shadow: 0 20px 50px rgba(0,0,0,0.35);
   }
+}
+
+html[data-theme="dark"], body[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --surface: rgba(15, 23, 42, 0.32);
+  --surface-strong: rgba(30, 41, 59, 0.4);
+  --panel: rgba(30, 41, 59, 0.5);
+  --text-muted: rgba(229,231,235,0.74);
+  --shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+html[data-theme="light"], body[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: rgba(255,255,255,0.12);
+  --surface-strong: rgba(255,255,255,0.18);
+  --panel: rgba(255,255,255,0.22);
+  --text-muted: rgba(23,23,23,0.72);
+  --shadow: 0 20px 50px rgba(2,6,23,0.25);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 220ms ease, transform 220ms ease, border-color 220ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* Shimmer animation from top-left to bottom-right */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px -1000px;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  background-size: 1000px 1000px;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::before {
+  animation: shimmer 600ms ease-in-out forwards;
+  opacity: 1;
 }
