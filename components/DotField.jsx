@@ -40,7 +40,7 @@ const DotField = memo(({
     const glowEl = glowRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     let resizeTimer;
 
     function resize() {
@@ -113,6 +113,15 @@ const DotField = memo(({
 
     let frameCount = 0;
 
+    let isInView = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(canvas.parentElement || canvas);
+
     function tick() {
       frameCount++;
       const dots = dotsRef.current;
@@ -121,6 +130,10 @@ const DotField = memo(({
       const p = propsRef.current;
       const len = dots.length;
       const t = frameCount * 0.02;
+
+      rafRef.current = requestAnimationFrame(tick);
+
+      if (!isInView) return;
 
       const targetEngagement = Math.min(m.speed / 5, 1);
       engagement.current += (targetEngagement - engagement.current) * 0.06;
@@ -206,8 +219,6 @@ const DotField = memo(({
       }
 
       ctx.fill();
-
-      rafRef.current = requestAnimationFrame(tick);
     }
 
     doResize();
@@ -225,6 +236,7 @@ const DotField = memo(({
 
     return () => {
       cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
       clearInterval(speedInterval);
       clearTimeout(resizeTimer);
       clearTimeout(timer);

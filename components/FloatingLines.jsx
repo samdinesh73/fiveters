@@ -288,7 +288,7 @@ export default function FloatingLines({
     camera.position.z = 1;
 
     const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     container.appendChild(renderer.domElement);
@@ -390,6 +390,15 @@ export default function FloatingLines({
 
     if (ro) ro.observe(container);
 
+    let isInView = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(container);
+
     const handlePointerMove = event => {
       const rect = renderer.domElement.getBoundingClientRect();
       const x = event.clientX - rect.left;
@@ -421,6 +430,10 @@ export default function FloatingLines({
     const renderLoop = () => {
       if (!active) return;
 
+      raf = requestAnimationFrame(renderLoop);
+
+      if (!isInView) return;
+
       uniforms.iTime.value = clock.getElapsedTime();
 
       if (interactive) {
@@ -437,7 +450,6 @@ export default function FloatingLines({
       }
 
       renderer.render(scene, camera);
-      raf = requestAnimationFrame(renderLoop);
     };
     renderLoop();
 
@@ -445,6 +457,7 @@ export default function FloatingLines({
       active = false;
 
       cancelAnimationFrame(raf);
+      observer.disconnect();
 
       if (ro) ro.disconnect();
 
