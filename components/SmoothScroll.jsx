@@ -16,7 +16,7 @@ export default function SmoothScroll() {
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.0,
+      wheelMultiplier: 1.5,
     });
 
     // Synchronize ScrollTrigger with Lenis scroll ticks

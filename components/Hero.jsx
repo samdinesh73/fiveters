@@ -70,7 +70,7 @@ export default function Hero() {
       </div> */}
 
       {/* Interactive Floating Lines Shader Layer */}
-      <div
+      {/* <div
         className="absolute inset-0 z-20 pointer-events-none"
         style={{ padding: `var(--space-video-y) var(--space-video-x)` }}
       >
@@ -88,7 +88,7 @@ export default function Hero() {
             mixBlendMode="screen"
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="absolute inset-0 mix-blend-multiply" style={{ padding: `var(--space-video-y) var(--space-video-x)` }}>
         <div className="w-full bg-gradient-to-b from-[rgba(10,12,20,0.4)] to-[rgba(10,12,20,0.65)] h-full rounded-2xl" style={{ borderRadius: 'var(--radius-video)' }} />

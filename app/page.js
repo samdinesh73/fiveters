@@ -18,9 +18,9 @@ export default function Home() {
       <Header />
       <main>
 
-        <HeroRun />
+        {/* <HeroRun /> */}
         <Hero />
-        <LaserShowcase />
+        {/* <LaserShowcase /> */}
         {/* <MasonryGallery /> */}
         <Services />
         {/* <ProcessSteps /> */}
