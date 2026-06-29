@@ -25,6 +25,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <title>Fiveters Media Digital Marketing Agency</title>
+      </head>
       <body className="min-h-full flex flex-col">
         <TargetCursor
           targetSelector="a,button,footer a, footer button, header a, header button, header .header-logo"
