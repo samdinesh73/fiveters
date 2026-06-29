@@ -5,62 +5,76 @@ import RollingButton from "./RollingButton";
 
 const SERVICES = [
   {
-    title: "Content marketing strategy",
-    desc: "Create compelling content that resonates with your audience and drives engagement.",
-    image: "/service_content.png",
-    icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M25 35 L50 20 L75 35 L50 50 Z" />
-        <path d="M25 50 L50 35 L75 50 L50 65 Z" opacity="0.8" />
-        <path d="M25 65 L50 50 L75 65 L50 80 Z" opacity="0.6" />
-        <path d="M25 35 L25 65" />
-        <path d="M50 50 L50 80" />
-        <path d="M75 35 L75 65" />
-      </svg>
-    ),
-  },
-  {
-    title: "Conversion rate optimization",
-    desc: "Improve landing pages and funnels to increase leads and sales.",
+    title: "Paid Ads & Search Engine Marketing",
+    desc: "Scale acquisition with high-intent Meta, Google, and TikTok paid media funnels.",
     image: "/service_conversion.png",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        {/* Left Column Bar */}
-        <path d="M25 60 L37.5 52.5 L50 60 L37.5 67.5 Z" />
-        <path d="M25 60 L25 80 L37.5 87.5 L37.5 67.5 Z" />
-        <path d="M37.5 67.5 L37.5 87.5 L50 80 L50 60 Z" />
-        {/* Right Column Bar */}
-        <path d="M50 40 L62.5 32.5 L75 40 L62.5 47.5 Z" />
-        <path d="M50 40 L50 80 L62.5 87.5 L62.5 47.5 Z" />
-        <path d="M62.5 47.5 L62.5 87.5 L75 80 L75 40 Z" />
+        <path d="M20 70 L40 50 L60 60 L80 30" />
+        <circle cx="80" cy="30" r="4" fill="currentColor" />
+        <path d="M20 80 L80 80" />
+        <path d="M20 20 L20 80" />
       </svg>
     ),
   },
   {
-    title: "Creative & production",
-    desc: "Design, copy, and creatives built for performance across channels.",
+    title: "Search Engine Optimization (SEO)",
+    desc: "Dominate search engine rankings, capture organic intent, and multiply free pipeline leads.",
+    image: "/service_content.png",
+    icon: (
+      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="45" cy="45" r="20" />
+        <line x1="60" y1="60" x2="80" y2="80" />
+        <path d="M35 45 H55" />
+        <path d="M45 35 V55" />
+      </svg>
+    ),
+  },
+  {
+    title: "Website Design & Development",
+    desc: "Deploy lightning-fast, conversion-optimized responsive web builds using Next.js and Tailwind.",
     image: "/service_creative.png",
+    icon: (
+      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="20" y="25" width="60" height="40" rx="4" />
+        <path d="M35 75 L65 75" />
+        <path d="M50 65 V75" />
+        <path d="M28 35 H72" />
+      </svg>
+    ),
+  },
+  {
+    title: "Custom Software Development",
+    desc: "Architect scalable backend engines, SaaS cloud infrastructure, APIs, and headless business systems.",
+    image: "/service_email.png",
+    icon: (
+      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M35 40 L20 50 L35 60" />
+        <path d="M65 40 L80 50 L65 60" />
+        <line x1="55" y1="30" x2="45" y2="70" />
+      </svg>
+    ),
+  },
+  {
+    title: "Creative Copy & Visual Assets",
+    desc: "Produce high-converting landing designs, cinematic short-form video ads, and engaging brand copy.",
+    image: "/service_content.png",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M50 20 L80 35 L80 65 L50 80 L20 65 L20 35 Z" />
         <path d="M50 20 L50 80" />
         <path d="M20 35 L50 50 L80 35" />
-        <path d="M20 65 L50 50 L80 65" />
       </svg>
     ),
   },
   {
-    title: "Email & SMS marketing",
-    desc: "Engage your audience with targeted email and SMS campaigns.",
+    title: "Email & SMS Retention Campaigns",
+    desc: "Automate retention flows, newsletters, and win-back sequences that maximize customer lifetime value.",
     image: "/service_email.png",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="50" cy="50" r="30" strokeDasharray="6 6" />
-        <path d="M50 20 C65 20, 80 35, 80 50 C80 65, 65 80, 50 80 C35 80, 20 65, 20 50 C20 35, 35 20, 50 20 Z" />
-        <path d="M50 20 L50 80" />
-        <path d="M20 50 L80 50" />
-        <path d="M29 29 L71 71" />
-        <path d="M29 71 L71 29" />
+        <rect x="20" y="30" width="60" height="40" rx="3" />
+        <path d="M20 30 L50 55 L80 30" />
       </svg>
     ),
   },
@@ -129,7 +143,7 @@ export default function Services() {
   };
 
   return (
-    <section className="bg-[#07080a] text-white py-28 px-6 md:px-12 border-t border-white/[0.02]">
+    <section id="services" className="bg-[#07080a] text-white py-28 px-6 md:px-12 border-t border-white/[0.02]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
         {/* Left Column - Sticky Content */}
@@ -190,15 +204,18 @@ export default function Services() {
                 key={idx}
                 onMouseEnter={() => handleMouseEnter(s.image)}
                 onMouseLeave={handleMouseLeave}
-                className="group relative flex flex-col sm:flex-row items-start gap-6 p-8 sm:p-10 transition-all duration-300 border-b border-white/[0.04] hover:bg-white hover:text-black hover:rounded-3xl cursor-pointer"
+                className="group relative flex flex-col sm:flex-row items-start gap-6 p-8 sm:p-10 border-b border-white/[0.04] hover:text-black hover:rounded-3xl cursor-pointer overflow-hidden transition-all duration-300"
               >
+                {/* Sliding background overlay */}
+                <div className="absolute inset-0 bg-white transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
+
                 {/* Isometric SVG container */}
-                <div className="flex-shrink-0 p-2 sm:p-3 bg-[#11131a] rounded-2xl border border-white/[0.04] group-hover:bg-[#11131a]/5 group-hover:border-black/5 transition-colors">
+                <div className="relative z-10 flex-shrink-0 p-2 sm:p-3 bg-[#11131a] rounded-2xl border border-white/[0.04] group-hover:bg-[#11131a]/5 group-hover:border-black/5 transition-colors">
                   {s.icon}
                 </div>
 
                 {/* Content area */}
-                <div className="flex-1 space-y-2">
+                <div className="relative z-10 flex-1 space-y-2">
                   <h3 className="text-xl sm:text-2xl font-bold tracking-tight font-heading">
                     {s.title}
                   </h3>

@@ -2,6 +2,8 @@
 import React from "react";
 import RollingButton from "./RollingButton";
 
+import ScrollFloat from "./ScrollFloat";
+
 export default function Footer() {
   return (
     <footer className="relative bg-[#07080a] border-t border-white/[0.04] text-white pt-24 pb-12 overflow-hidden">
@@ -15,12 +17,19 @@ export default function Footer() {
         style={{ background: "radial-gradient(circle 600px at bottom center, rgba(210, 79, 59, 0.44), transparent 65%)" }}
       />
 
-      {/* Large background watermark text */}
-      <div className="absolute bottom-8 inset-x-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span className="font-heading font-extrabold text-[12vw] tracking-[0.38em] text-white/[0.12] leading-none uppercase pl-[0.38em]">
-          fiveters
-        </span>
-      </div>
+      {/* Large background watermark text with ScrollFloat effect */}
+      <ScrollFloat
+        animationDuration={1.2}
+        ease="back.out(1.5)"
+        scrollStart="top 92%"
+        scrollEnd="bottom bottom"
+        stagger={0.05}
+        scrub={false}
+        containerClassName="absolute bottom-8 inset-x-0 flex items-center justify-center pointer-events-none select-none overflow-hidden w-full z-0"
+        textClassName="font-heading font-extrabold text-[12vw] tracking-[0.38em] text-white/[0.12] leading-none uppercase pl-[0.38em] text-center"
+      >
+        fiveters
+      </ScrollFloat>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Main top columns grid */}
@@ -155,10 +164,10 @@ export default function Footer() {
           </div>
 
           {/* Action button matching neon green accent badge */}
-          <div className="md:-mt-2">
+          <div className="md:-mt-2 hidden sm:block">
             <RollingButton
               text="Follow Us"
-              className="px-5 py-2.5 bg-[blue] hover:bg-[blue] text-white font-bold text-xs tracking-wider uppercase rounded-full flex items-center gap-2 transition duration-200 shadow-md hover:scale-[1.03] active:scale-[0.98] cursor-pointer font-bold"
+              className=" px-5 py-2.5 bg-[blue] hover:bg-[blue] text-white font-bold text-xs tracking-wider uppercase rounded-full flex items-center gap-2 transition duration-200 shadow-md hover:scale-[1.03] active:scale-[0.98] cursor-pointer font-bold"
             >
               {/* <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-[#fff] ml-2">
                 <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor">

@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "../components/SmoothScroll";
-import CursorImageTrail from "../components/CursorImageTrail";
+import TargetCursor from "../components/TargetCursor";
+import ClickSpark from "../components/ClickSpark";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +26,23 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <TargetCursor
+          targetSelector="a,button,footer a, footer button, header a, header button, header .header-logo"
+          spinDuration={2.5}
+          hideDefaultCursor={true}
+          cursorColor="rgba(255, 255, 255, 0.85)"
+          cursorColorOnTarget="#9a0002"
+        />
         <SmoothScroll />
-        <CursorImageTrail />
-        {children}
+        <ClickSpark
+          sparkColor="#9a0002"
+          sparkSize={12}
+          sparkRadius={25}
+          sparkCount={15}
+          duration={500}
+        >
+          {children}
+        </ClickSpark>
       </body>
     </html>
   );

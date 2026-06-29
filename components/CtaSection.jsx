@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import RollingButton from "./RollingButton";
+import DotField from "./DotField";
 
 export default function CtaSection() {
   const containerRef = useRef(null);
@@ -105,6 +106,21 @@ export default function CtaSection() {
       ref={containerRef}
       className="relative w-full bg-[#07080a] text-white py-28 px-6 flex flex-col items-center justify-center overflow-hidden border-t border-white/[0.02]"
     >
+      {/* DotField background layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
+        <DotField
+          dotRadius={2.8}
+          dotSpacing={16}
+          bulgeStrength={75}
+          glowRadius={240}
+          sparkle={true}
+          waveAmplitude={4}
+          gradientFrom="rgba(239, 230, 221, 0.35)"
+          gradientTo="rgba(154, 0, 2, 0.48)"
+          glowColor="rgba(154, 0, 2, 0.2)"
+        />
+      </div>
+
       {/* Background soft glowing blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-indigo-600/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 

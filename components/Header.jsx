@@ -82,8 +82,17 @@ const MENU = [
 ];
 
 
+import StaggeredMenu from "./StaggeredMenu";
+
+const mobileSocialItems = [
+  { label: "Instagram", link: "https://instagram.com" },
+  { label: "LinkedIn", link: "https://linkedin.com" },
+  { label: "YouTube", link: "https://youtube.com" },
+];
+
 export default function Header() {
   const [openKey, setOpenKey] = useState(null);
+  const [expandedKey, setExpandedKey] = useState(null);
   const [theme, setTheme] = useState("dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const rootRef = useRef(null);
@@ -156,7 +165,7 @@ export default function Header() {
 
       <nav
         ref={rootRef}
-        className="mx-auto flex items-center justify-between gap-6 px-6 py-3.5 rounded-full backdrop-blur-xl border shadow-2xl transition-all duration-300"
+        className="mx-auto flex items-center justify-between gap-6 px-6 py-3.5 rounded-full backdrop-blur-xl border shadow-2xl transition-all duration-300 w-full"
         style={{
           backgroundColor: "rgb(159 159 159 / 28%)",
           borderColor: "rgba(255, 255, 255, 0.08)",
@@ -165,7 +174,7 @@ export default function Header() {
       >
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full  flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200">
+          <div className="header-logo w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer">
             <img src="/logo/logo1.png" alt="" />
           </div>
           {/* <span className="font-heading font-bold text-white tracking-tight text-lg">
@@ -173,7 +182,7 @@ export default function Header() {
           </span> */}
         </div>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links (hidden on mobile) */}
         <ul ref={menuRef} className="hidden md:flex items-center gap-8">
           {MENU.map((item) => (
             <li
@@ -254,21 +263,19 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Action Button & Settings */}
+        {/* Action Button & Hamburger Toggle */}
         <div ref={actionsRef} className="flex items-center gap-4">
-
-
           <RollingButton
             text="Try now"
             className="hidden md:inline-flex px-5 py-2.5 bg-white text-black font-semibold text-xs tracking-wide uppercase rounded-full shadow-lg hover:bg-neutral-100 hover:scale-[1.02] active:scale-[0.98] transition duration-200 cursor-pointer"
           />
 
-          {/* Mobile Hamburguer Menu */}
+          {/* Mobile Hamburger Toggle (breadcrumb icon) */}
           <button
-            className="md:hidden p-2.5 rounded-full border border-white/[0.08] text-white/80 hover:text-white"
+            className="md:hidden p-2.5 rounded-full border border-white/[0.08] text-white/80 hover:text-white flex items-center justify-center transition-all bg-white/[0.02] cursor-pointer"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               {mobileMenuOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
               ) : (
@@ -279,52 +286,20 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile Drawer Overlay */}
-      <div
-        className={`md:hidden absolute top-[72px] left-0 w-full rounded-[24px] bg-[#0c0d13]/98 backdrop-blur-2xl border border-white/[0.07] shadow-2xl overflow-hidden transition-all duration-300 z-40 ${mobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto scale-100" : "opacity-0 -translate-y-4 pointer-events-none scale-95"
-          }`}
-      >
-        <div className="px-6 py-6 overflow-y-auto max-h-[calc(100vh-140px)] flex flex-col gap-6">
-          {MENU.map((item) => (
-            <div key={item.label} className="border-b border-white/[0.04] pb-4">
-              {item.children ? (
-                <div>
-                  <div className="text-xs font-semibold text-white/35 tracking-widest uppercase mb-3">
-                    {item.label}
-                  </div>
-                  <div className="grid grid-cols-1 gap-4 pl-1">
-                    {item.children.map((c) => (
-                      <a key={c.title} href={c.href} className="flex items-center gap-3.5 group">
-                        {c.icon ? (
-                          <div className="w-8 h-8 rounded-lg bg-[#171a25]/90 border border-white/[0.08] flex items-center justify-center text-white/60">
-                            {c.icon}
-                          </div>
-                        ) : (
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary/60 ml-2" />
-                        )}
-                        <div>
-                          <div className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">{c.title}</div>
-                          <div className="text-[11px] text-white/40">{c.desc}</div>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <a href={item.href} className="text-base font-semibold text-white hover:text-primary transition-colors block">
-                  {item.label}
-                </a>
-              )}
-            </div>
-          ))}
-          <div className="mt-2">
-            <RollingButton
-              text="Try now"
-              className="w-full py-3 bg-white text-black font-semibold text-xs tracking-wider uppercase rounded-full hover:bg-neutral-100 active:scale-[0.98] transition cursor-pointer"
-            />
-          </div>
-        </div>
-      </div>
-    </header >
+      {/* Mobile Staggered Menu Overlay */}
+      <StaggeredMenu
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        colors={["#0c0d12", "#9a0002"]} // custom dark background and deep crimson layers matching site theme!
+        items={MENU}
+        socialItems={mobileSocialItems}
+        displaySocials={true}
+        displayItemNumbering={true}
+        accentColor="#9a0002"
+        isFixed={true}
+        className="md:hidden"
+        hideHeader={true}
+      />
+    </header>
   );
 }
