@@ -20,7 +20,7 @@ export default function Home() {
 
         {/* <HeroRun /> */}
         <Hero />
-        {/* <LaserShowcase /> */}
+        <LaserShowcase />
         {/* <MasonryGallery /> */}
         <Services />
         {/* <ProcessSteps /> */}
