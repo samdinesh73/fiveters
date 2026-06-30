@@ -18,7 +18,7 @@ export default function StickyScroll() {
             <div className="md:col-span-1">
               <div className="sticky" style={{ top: '120px', height: 'calc(100vh - 120px)', display: 'flex', alignItems: 'center' }}>
                 <div>
-                  <h2 className="text-3xl md:text-5xl font-extrabold" style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--text-h2)' }}>
+                  <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold" style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--text-h2)' }}>
                     Create stunning voiceover
                     <br />
                     <span className="text-[var(--secondary)]">in 4 simple steps</span>

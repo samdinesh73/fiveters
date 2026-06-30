@@ -26,7 +26,7 @@ export default function Footer() {
         stagger={0.05}
         scrub={false}
         containerClassName="absolute bottom-8 inset-x-0 flex items-center justify-center pointer-events-none select-none overflow-hidden w-full z-0"
-        textClassName="font-heading font-extrabold text-[12vw] tracking-[0.38em] text-white/[0.12] leading-none uppercase pl-[0.38em] text-center"
+        textClassName="font-heading font-extrabold text-[11vw] tracking-[0.38em] text-white/[0.12] leading-none uppercase pl-[0.38em] text-center"
       >
         fiveters
       </ScrollFloat>

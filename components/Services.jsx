@@ -1,7 +1,12 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import RollingButton from "./RollingButton";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const SERVICES = [
   {
@@ -81,27 +86,74 @@ const SERVICES = [
 ];
 
 export default function Services() {
+  const sectionRef = useRef(null);
   const listRef = useRef(null);
   const imageRef = useRef(null);
   const [activeImage, setActiveImage] = useState("");
   const [isHovered, setIsHovered] = useState(false);
 
+  /* ── Scroll-driven entrance animations ── */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const ctx = gsap.context(() => {
+      // Left column: badge → heading → body → button, each staggered
+      gsap.fromTo(
+        ".services-left-animate > *",
+        { opacity: 0, y: 50, filter: "blur(4px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          stagger: 0.12,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: ".services-left-animate",
+            start: "top 82%",
+            toggleActions: "play none none reset",
+          },
+        }
+      );
+
+      // Each service row gets its OWN ScrollTrigger so it fires
+      // only when that individual row enters the viewport — not all at once.
+      gsap.utils.toArray(".service-row-animate", el).forEach((row) => {
+        gsap.fromTo(
+          row,
+          { opacity: 0.4, y: 55, filter: "blur(6px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.85,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: row,          // each row is its own trigger
+              start: "top 88%",      // fires when row bottom enters viewport
+              toggleActions: "play none none reset",  // reset on scroll-back so it re-animates
+            },
+          }
+        );
+      });
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
+
+  /* ── Cursor-follow floating image ── */
   useEffect(() => {
     const list = listRef.current;
     if (!list) return;
 
-    // Position the image card at the exact center of the cursor
     gsap.set(imageRef.current, { xPercent: -50, yPercent: -50 });
 
     const onMouseMove = (e) => {
       const rect = list.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      // Animate the image position smoothly following the mouse
       gsap.to(imageRef.current, {
-        x: x,
-        y: y,
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
         duration: 0.4,
         ease: "power2.out",
         overwrite: "auto",
@@ -109,45 +161,36 @@ export default function Services() {
     };
 
     list.addEventListener("mousemove", onMouseMove);
-    return () => {
-      list.removeEventListener("mousemove", onMouseMove);
-    };
+    return () => list.removeEventListener("mousemove", onMouseMove);
   }, []);
 
   const handleMouseEnter = (imagePath) => {
     setActiveImage(imagePath);
     setIsHovered(true);
-
-    gsap.to(imageRef.current, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.3,
-      ease: "power2.out",
-    });
+    gsap.to(imageRef.current, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-
     gsap.to(imageRef.current, {
       scale: 0.85,
       opacity: 0,
       duration: 0.3,
       ease: "power2.out",
-      onComplete: () => {
-        if (!isHovered) {
-          setActiveImage("");
-        }
-      },
+      onComplete: () => { if (!isHovered) setActiveImage(""); },
     });
   };
 
   return (
-    <section id="services" className="bg-[#07080a] text-white py-28 px-6 md:px-12 border-t border-white/[0.02]">
+    <section
+      ref={sectionRef}
+      id="services"
+      className="bg-[#07080a] text-white py-28 px-6 md:px-12 border-t border-white/[0.02]"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-        {/* Left Column - Sticky Content */}
-        <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
+        {/* Left Column – animated children */}
+        <div className="services-left-animate lg:col-span-5 lg:sticky lg:top-32 space-y-6">
           <div className="flex items-center gap-2 text-[#9a0002] text-xs font-semibold uppercase tracking-widest">
             <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" className="animate-pulse">
               <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z" />
@@ -155,11 +198,11 @@ export default function Services() {
             <span>Our Services</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.15] font-heading max-w-md">
+          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.15] font-heading max-w-md">
             Marketing solutions that drive results
           </h2>
 
-          <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-sm" style={{ fontFamily: "var(--font-body)" }}>
+          <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-sm font-body">
             Trusted by 100+ businesses in retail, healthcare, tech, and more.
           </p>
 
@@ -175,18 +218,14 @@ export default function Services() {
           </RollingButton>
         </div>
 
-        {/* Right Column - Services List with Cursor Follow Effect */}
+        {/* Right Column – service rows */}
         <div ref={listRef} className="lg:col-span-7 relative flex flex-col">
 
-          {/* Floating image card wrapper */}
+          {/* Floating image card */}
           <div
             ref={imageRef}
             className="hidden md:block pointer-events-none absolute w-56 h-64 rounded-3xl overflow-hidden opacity-0 scale-90 z-30 shadow-[0_25px_60px_rgba(0,0,0,0.7)] border border-white/10"
-            style={{
-              left: 0,
-              top: 0,
-              transform: "translate3d(0, 0, 0)",
-            }}
+            style={{ left: 0, top: 0, transform: "translate3d(0,0,0)" }}
           >
             {activeImage && (
               <img
@@ -197,29 +236,27 @@ export default function Services() {
             )}
           </div>
 
-          {/* List layout */}
+          {/* Service list */}
           <div className="flex flex-col border-t border-white/[0.04]">
             {SERVICES.map((s, idx) => (
               <div
                 key={idx}
                 onMouseEnter={() => handleMouseEnter(s.image)}
                 onMouseLeave={handleMouseLeave}
-                className="group relative flex flex-col sm:flex-row items-start gap-6 p-8 sm:p-10 border-b border-white/[0.04] hover:text-black hover:rounded-3xl cursor-pointer overflow-hidden transition-all duration-300"
+                className="service-row-animate group relative flex flex-col sm:flex-row items-start gap-6 p-8 sm:p-10 border-b border-white/[0.04] hover:text-black hover:rounded-3xl cursor-pointer overflow-hidden transition-all duration-300"
               >
-                {/* Sliding background overlay */}
+                {/* Sliding white background overlay on hover */}
                 <div className="absolute inset-0 bg-white transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
 
-                {/* Isometric SVG container */}
+                {/* Icon */}
                 <div className="relative z-10 flex-shrink-0 p-2 sm:p-3 bg-[#11131a] rounded-2xl border border-white/[0.04] group-hover:bg-[#11131a]/5 group-hover:border-black/5 transition-colors">
                   {s.icon}
                 </div>
 
-                {/* Content area */}
+                {/* Text */}
                 <div className="relative z-10 flex-1 space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight font-heading">
-                    {s.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-white/50 group-hover:text-black/60 font-light leading-relaxed transition-colors" style={{ fontFamily: "var(--font-body)" }}>
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight font-heading">{s.title}</h3>
+                  <p className="text-xs sm:text-sm text-white/50 group-hover:text-black/60 font-light leading-relaxed transition-colors font-body">
                     {s.desc}
                   </p>
                 </div>

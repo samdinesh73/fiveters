@@ -73,7 +73,7 @@ export default function LaserShowcase() {
             <span className="px-3.5 py-1 bg-red-950/20 text-[#ef4444] border border-[#ef4444]/15 text-[10px] font-bold rounded-full uppercase tracking-widest inline-block font-heading">
               Interactive Showcase
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight font-heading text-white leading-tight">
+            <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading text-white leading-tight">
               Reveal the data that drives growth
             </h2>
             <p className="text-xs md:text-sm text-white/55 font-light leading-relaxed font-body">

@@ -6,13 +6,13 @@ export default function SuccessStudies() {
   return (
     <section id="results" className="bg-[#07080a] text-white py-32 px-6 md:px-12 relative overflow-hidden border-t border-white/[0.02]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
+
         {/* Left Column: Brand Case Studies Copy */}
         <div className="lg:col-span-6 space-y-6 relative z-10">
           <span className="px-3.5 py-1 bg-red-950/20 text-[#ef4444] border border-[#ef4444]/15 text-[10px] font-bold rounded-full uppercase tracking-widest inline-block font-heading">
             Results
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-tight max-w-xl">
+          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-tight max-w-xl">
             Proven scale for high-growth brands
           </h2>
           <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-lg font-body">

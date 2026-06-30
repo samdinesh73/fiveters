@@ -113,7 +113,7 @@ export default function ProcessSteps() {
         <span className="px-3.5 py-1 bg-green-950/20 text-[#4ade80] border border-[#4ade80]/15 text-[10px] font-bold rounded-full uppercase tracking-widest mb-4 inline-block font-heading">
           Process
         </span>
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-tight mb-6">
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-tight mb-6">
           How we'll work together
         </h2>
         <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-2xl mx-auto font-body">
@@ -151,8 +151,8 @@ export default function ProcessSteps() {
                 {/* Alternating Content Column */}
                 <div
                   className={`relative pl-14 md:pl-0 z-10 step-content transition-all duration-500 ${isLeft
-                      ? "md:col-span-1 md:text-right md:pr-14"
-                      : "md:col-start-2 md:col-span-1 md:pl-14"
+                    ? "md:col-span-1 md:text-right md:pr-14"
+                    : "md:col-start-2 md:col-span-1 md:pl-14"
                     }`}
                 >
                   <div className="step-number text-[11px] font-bold tracking-widest text-[#9a0002] uppercase mb-1.5 transition-colors duration-300">

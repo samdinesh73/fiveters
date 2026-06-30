@@ -131,36 +131,36 @@ export default function CtaSection() {
       >
         {/* Avatar 1 */}
         <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-indigo-400 transition-all duration-300">
-          <img src="/images/avatar.jpg" alt="" />
+          <img src="/images/team_ceo.png" alt="" />
         </div>
 
         {/* Avatar 2 */}
         <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-amber-400 transition-all duration-300">
-          <img src="/images/avatar.jpg" alt="" />
+          <img src="/images/team_creative.png" alt="" />
         </div>
 
         {/* Avatar 3 */}
         <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-red-400 transition-all duration-300">
-          <img src="/images/avatar.jpg" alt="" />
+          <img src="/images/team_performance.png" alt="" />
         </div>
 
         {/* Avatar 4 */}
         <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
-          <img src="/images/avatar.jpg" alt="" />
+          <img src="/images/team_ceo.png" alt="" />
         </div>
 
         {/* Avatar 5 */}
         <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
-          <img src="/images/avatar.jpg" alt="" />
+          <img src="/images/team_creative.png" alt="" />
         </div>
       </div>
 
       {/* Main Title Heading */}
       <div ref={titleRef} className="text-center mb-8 relative z-10">
-        <h2 className="text-[32px] sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-4xl mx-auto font-heading">
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-[32px] sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-4xl mx-auto font-heading">
           Turn clicks{" "}
           <span className="capsule-pill inline-flex items-center justify-center w-[62px] sm:w-[84px] md:w-[110px] h-[28px] sm:h-[38px] md:h-[50px] rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-orange-400 mx-1 md:mx-2 overflow-hidden align-middle border border-white/10 shadow-lg relative group transition-transform duration-300 hover:scale-105">
-            <img src="/images/avatar.jpg" alt="" />
+            <img src="/images/marketing_showcase.png" alt="" />
           </span>{" "}
           Into customers
           <br />
