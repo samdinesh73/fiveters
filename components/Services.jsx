@@ -14,7 +14,7 @@ const SERVICES = [
     desc: "Scale acquisition with high-intent Meta, Google, and TikTok paid media funnels.",
     image: "/service_conversion.png",
     icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 70 L40 50 L60 60 L80 30" />
         <circle cx="80" cy="30" r="4" fill="currentColor" />
         <path d="M20 80 L80 80" />
@@ -27,7 +27,7 @@ const SERVICES = [
     desc: "Dominate search engine rankings, capture organic intent, and multiply free pipeline leads.",
     image: "/service_content.png",
     icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="45" cy="45" r="20" />
         <line x1="60" y1="60" x2="80" y2="80" />
         <path d="M35 45 H55" />
@@ -40,7 +40,7 @@ const SERVICES = [
     desc: "Deploy lightning-fast, conversion-optimized responsive web builds using Next.js and Tailwind.",
     image: "/service_creative.png",
     icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="20" y="25" width="60" height="40" rx="4" />
         <path d="M35 75 L65 75" />
         <path d="M50 65 V75" />
@@ -53,7 +53,7 @@ const SERVICES = [
     desc: "Architect scalable backend engines, SaaS cloud infrastructure, APIs, and headless business systems.",
     image: "/service_email.png",
     icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M35 40 L20 50 L35 60" />
         <path d="M65 40 L80 50 L65 60" />
         <line x1="55" y1="30" x2="45" y2="70" />
@@ -65,7 +65,7 @@ const SERVICES = [
     desc: "Produce high-converting landing designs, cinematic short-form video ads, and engaging brand copy.",
     image: "/service_content.png",
     icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M50 20 L80 35 L80 65 L50 80 L20 65 L20 35 Z" />
         <path d="M50 20 L50 80" />
         <path d="M20 35 L50 50 L80 35" />
@@ -77,7 +77,7 @@ const SERVICES = [
     desc: "Automate retention flows, newsletters, and win-back sequences that maximize customer lifetime value.",
     image: "/service_email.png",
     icon: (
-      <svg viewBox="0 0 100 100" className="w-12 h-12 text-white/70 group-hover:text-black/80 transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="20" y="30" width="60" height="40" rx="3" />
         <path d="M20 30 L50 55 L80 30" />
       </svg>
@@ -91,6 +91,17 @@ export default function Services() {
   const imageRef = useRef(null);
   const [activeImage, setActiveImage] = useState("");
   const [isHovered, setIsHovered] = useState(false);
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const syncTheme = () => {
+      const currentTheme = document.documentElement.dataset.theme || "dark";
+      setTheme(currentTheme);
+    };
+    syncTheme();
+    window.addEventListener("themechange", syncTheme);
+    return () => window.removeEventListener("themechange", syncTheme);
+  }, []);
 
   /* ── Scroll-driven entrance animations ── */
   useEffect(() => {
@@ -108,7 +119,7 @@ export default function Services() {
           filter: "blur(0px)",
           duration: 0.9,
           stagger: 0.12,
-          ease: "power4.out",
+          ease: "power3.out",
           scrollTrigger: {
             trigger: ".services-left-animate",
             start: "top 82%",
@@ -127,8 +138,8 @@ export default function Services() {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            duration: 0.85,
-            ease: "power4.out",
+            duration: 0.10,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: row,          // each row is its own trigger
               start: "top 88%",      // fires when row bottom enters viewport
@@ -185,7 +196,7 @@ export default function Services() {
     <section
       ref={sectionRef}
       id="services"
-      className="bg-[#07080a] text-white py-28 px-6 md:px-12 border-t border-white/[0.02]"
+      className="bg-background text-foreground py-28 px-6 md:px-12 border-t border-foreground/[0.02]"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
@@ -198,19 +209,19 @@ export default function Services() {
             <span>Our Services</span>
           </div>
 
-          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.15] font-heading max-w-md">
+          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.15] font-heading max-w-md">
             Marketing solutions that drive results
           </h2>
 
-          <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-sm font-body">
+          <p className="text-sm md:text-base text-foreground/60 font-light leading-relaxed max-w-sm font-body">
             Trusted by 100+ businesses in retail, healthcare, tech, and more.
           </p>
 
           <RollingButton
             text="Explore all services"
-            className="px-5 py-3 bg-white text-black font-semibold text-xs tracking-wider uppercase rounded-full flex items-center gap-2.5 transition-all duration-200 hover:bg-neutral-100 hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer font-heading"
+            className="px-5 py-3 bg-foreground text-background font-semibold text-xs tracking-wider uppercase rounded-full flex items-center gap-2.5 transition-all duration-200 hover:bg-foreground/90 hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer font-heading"
           >
-            <div className="w-5.5 h-5.5 rounded-full bg-black flex items-center justify-center text-white ml-2.5">
+            <div className="w-5.5 h-5.5 rounded-full bg-background flex items-center justify-center text-foreground ml-2.5">
               <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6" />
               </svg>
@@ -224,7 +235,7 @@ export default function Services() {
           {/* Floating image card */}
           <div
             ref={imageRef}
-            className="hidden md:block pointer-events-none absolute w-56 h-64 rounded-3xl overflow-hidden opacity-0 scale-90 z-30 shadow-[0_25px_60px_rgba(0,0,0,0.7)] border border-white/10"
+            className="hidden md:block pointer-events-none absolute w-56 h-64 rounded-3xl overflow-hidden opacity-0 scale-90 z-30 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-foreground/10"
             style={{ left: 0, top: 0, transform: "translate3d(0,0,0)" }}
           >
             {activeImage && (
@@ -237,26 +248,38 @@ export default function Services() {
           </div>
 
           {/* Service list */}
-          <div className="flex flex-col border-t border-white/[0.04]">
+          <div className="flex flex-col border-t border-foreground/[0.04]">
             {SERVICES.map((s, idx) => (
               <div
                 key={idx}
                 onMouseEnter={() => handleMouseEnter(s.image)}
                 onMouseLeave={handleMouseLeave}
-                className="service-row-animate group relative flex flex-col sm:flex-row items-start gap-6 p-8 sm:p-10 border-b border-white/[0.04] hover:text-black hover:rounded-3xl cursor-pointer overflow-hidden transition-all duration-300"
+                className="service-row-animate group relative flex flex-col sm:flex-row items-start gap-6 p-8 sm:p-10 border-b border-foreground/[0.04] hover:rounded-3xl cursor-pointer overflow-hidden transition-all duration-300"
               >
-                {/* Sliding white background overlay on hover */}
-                <div className="absolute inset-0 bg-white transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
+                {/* Sliding background overlay (reverses on hover) - Crimson on light mode, White on dark mode */}
+                <div className={`absolute inset-0 ${theme === "light" ? "bg-primary" : "bg-foreground"} transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0`} />
 
-                {/* Icon */}
-                <div className="relative z-10 flex-shrink-0 p-2 sm:p-3 bg-[#11131a] rounded-2xl border border-white/[0.04] group-hover:bg-[#11131a]/5 group-hover:border-black/5 transition-colors">
-                  {s.icon}
+                {/* Icon wrapper (Background: secondary, Border: primary/10 in light mode; surface defaults in dark mode) */}
+                <div className={`relative z-10 flex-shrink-0 p-2 sm:p-3 rounded-2xl transition-all duration-300 ${theme === "light"
+                  ? "bg-white  border border-primary/10 group-hover:bg-white/10 group-hover:border-white/10"
+                  : "bg-surface border border-foreground/[0.04] group-hover:bg-background/5 group-hover:border-background/5"
+                  }`}>
+                  <span className={`transition-colors duration-300 ${theme === "light" ? "text-primary group-hover:text-white" : "text-foreground group-hover:text-background"
+                    }`}>
+                    {s.icon}
+                  </span>
                 </div>
 
-                {/* Text */}
+                {/* Text (Title: primary in light mode, foreground in dark mode) */}
                 <div className="relative z-10 flex-1 space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight font-heading">{s.title}</h3>
-                  <p className="text-xs sm:text-sm text-white/50 group-hover:text-black/60 font-light leading-relaxed transition-colors font-body">
+                  <h3 className={`text-xl sm:text-2xl font-bold tracking-tight font-heading transition-colors duration-300 ${theme === "light" ? "text-primary group-hover:text-white" : "text-foreground group-hover:text-background"
+                    }`}>
+                    {s.title}
+                  </h3>
+                  <p className={`text-xs sm:text-sm font-light leading-relaxed transition-colors font-body ${theme === "light"
+                    ? "text-foreground/60 group-hover:text-white/80"
+                    : "text-foreground/50 group-hover:text-background/80"
+                    }`}>
                     {s.desc}
                   </p>
                 </div>

@@ -26,7 +26,7 @@ export default function LaserShowcase() {
 
   return (
     <section
-      className="relative md:h-[650px] h-950px w-full bg-[#08090d] overflow-hidden cursor-crosshair border-b border-white/[0.02] flex items-center justify-center px-6"
+      className="relative md:h-[650px] h-[950px] w-full bg-background overflow-hidden cursor-crosshair border-b border-foreground/[0.02] flex items-center justify-center px-6"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -61,7 +61,7 @@ export default function LaserShowcase() {
       />
 
       {/* 3. Foreground Overlay Box: Digital Marketing copy */}
-      <div className="flowboxposition relative z-20 w-full max-w-4xl bg-gradient-to-br from-[#0c0d12]/92 to-[#06070a]/96 backdrop-blur-[24px] border border-white/[0.08] rounded-[28px] shadow-[0_0_50px_-12px_rgba(154,0,2,0.3)] overflow-hidden p-8 md:p-12">
+      <div className="flowboxposition relative z-20 w-full max-w-4xl bg-gradient-to-br border rounded-2xl from-background/92 to-background/96 backdrop-blur-[24px] border border-foreground/[0.08] shadow-[0_0_50px_-12px_rgba(154,0,2,0.3)] overflow-hidden p-8 md:p-12">
 
         {/* Laser contact splash top glowing line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#ef4444] to-transparent shadow-[0_2px_12px_rgba(239,68,68,0.6)]" />
@@ -70,13 +70,13 @@ export default function LaserShowcase() {
 
           {/* Left Column: Context Copy */}
           <div className="lg:col-span-7 text-left space-y-5">
-            <span className="px-3.5 py-1 bg-red-950/20 text-[#ef4444] border border-[#ef4444]/15 text-[10px] font-bold rounded-full uppercase tracking-widest inline-block font-heading">
+            <span className="px-3.5 py-1 bg-[#efe6dd] text-[#ef4444] border border-[#ef4444]/15 text-[10px] font-bold rounded-full uppercase tracking-widest inline-block font-heading">
               Interactive Showcase
             </span>
-            <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading text-white leading-tight">
+            <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-tight">
               Reveal the data that drives growth
             </h2>
-            <p className="text-xs md:text-sm text-white/55 font-light leading-relaxed font-body">
+            <p className="text-xs md:text-sm text-foreground/60 font-light leading-relaxed font-body">
               Hover and scrape the dark space to illuminate our custom real-time campaign performance dashboard. We build clarity directly into your scale metrics.
             </p>
 
@@ -89,7 +89,7 @@ export default function LaserShowcase() {
 
           {/* Right Column: Visual Dashboard Widget */}
           <div className="lg:col-span-5">
-            <div className="bg-[#0a0b0f]/90 border border-white/[0.06] rounded-2xl p-5 space-y-4 shadow-inner relative overflow-hidden text-left">
+            <div className="bg-surface border border-foreground/[0.06] rounded-2xl p-5 space-y-4 shadow-inner relative overflow-hidden text-left">
               {/* Subtle grid background */}
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
 
@@ -97,19 +97,19 @@ export default function LaserShowcase() {
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[9px] font-bold tracking-wider text-green-400 uppercase font-heading">
+                  <span className="text-[9px] font-bold tracking-wider text-green-500 uppercase font-heading">
                     LIVE ACCELERATION
                   </span>
                 </div>
-                <span className="text-[9px] text-white/30 font-mono">ID: 5TR-880</span>
+                <span className="text-[9px] text-foreground/30 font-mono">ID: 5TR-880</span>
               </div>
 
               {/* Big Metric */}
               <div className="space-y-0.5 relative z-10">
-                <div className="text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight">
-                  4.8x <span className="text-xs font-semibold text-green-400 font-body ml-2">+24%</span>
+                <div className="text-3xl md:text-4xl font-extrabold font-heading text-foreground tracking-tight">
+                  4.8x <span className="text-xs font-semibold text-green-500 font-body ml-2">+24%</span>
                 </div>
-                <div className="text-[10px] text-white/40 uppercase tracking-widest font-body">
+                <div className="text-[10px] text-foreground/45 uppercase tracking-widest font-body">
                   Average Campaign ROAS
                 </div>
               </div>
@@ -117,29 +117,29 @@ export default function LaserShowcase() {
               {/* Channel bars */}
               <div className="space-y-3 relative z-10 pt-2">
                 <div className="space-y-1">
-                  <div className="flex justify-between text-[9px] text-white/50 font-bold uppercase tracking-wider">
+                  <div className="flex justify-between text-[9px] text-foreground/50 font-bold uppercase tracking-wider">
                     <span>Meta Ads</span>
                     <span className="text-[#ef4444]">82%</span>
                   </div>
-                  <div className="h-1.5 w-full bg-white/[0.03] rounded-full overflow-hidden">
+                  <div className="h-1.5 w-full bg-foreground/[0.04] rounded-full overflow-hidden">
                     <div className="h-full bg-[#9a0002] rounded-full" style={{ width: "82%" }} />
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <div className="flex justify-between text-[9px] text-white/50 font-bold uppercase tracking-wider">
+                  <div className="flex justify-between text-[9px] text-foreground/50 font-bold uppercase tracking-wider">
                     <span>Google Search</span>
-                    <span className="text-[#efe6dd]">64%</span>
+                    <span className="text-foreground/80">64%</span>
                   </div>
-                  <div className="h-1.5 w-full bg-white/[0.03] rounded-full overflow-hidden">
-                    <div className="h-full bg-[#efe6dd]/60 rounded-full" style={{ width: "64%" }} />
+                  <div className="h-1.5 w-full bg-foreground/[0.04] rounded-full overflow-hidden">
+                    <div className="h-full bg-foreground/30 rounded-full" style={{ width: "64%" }} />
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <div className="flex justify-between text-[9px] text-white/50 font-bold uppercase tracking-wider">
+                  <div className="flex justify-between text-[9px] text-foreground/50 font-bold uppercase tracking-wider">
                     <span>TikTok Creative</span>
-                    <span className="text-green-400">45%</span>
+                    <span className="text-green-500">45%</span>
                   </div>
-                  <div className="h-1.5 w-full bg-white/[0.03] rounded-full overflow-hidden">
+                  <div className="h-1.5 w-full bg-foreground/[0.04] rounded-full overflow-hidden">
                     <div className="h-full bg-green-500/50 rounded-full" style={{ width: "45%" }} />
                   </div>
                 </div>

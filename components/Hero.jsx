@@ -51,7 +51,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-neutral-950 text-white" style={{ paddingTop: '80px' }}>
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background text-foreground" style={{ paddingTop: '80px' }}>
       {/* Video wrapper with side spacing */}
       {/* <div className="absolute inset-0 w-full h-full" style={{ padding: `var(--space-video-y) var(--space-video-x)` }}>
         <div className="w-full h-full rounded-2xl overflow-hidden" style={{ borderRadius: 'var(--radius-video)' }}>
@@ -91,7 +91,7 @@ export default function Hero() {
       </div>
       {/*  */}
       <div className="absolute inset-0 mix-blend-multiply" style={{ padding: `var(--space-video-y) var(--space-video-x)` }}>
-        <div className="w-full bg-gradient-to-b from-[rgba(10,12,20,0.4)] to-[rgba(10,12,20,0.65)] h-full rounded-2xl" style={{ borderRadius: 'var(--radius-video)' }} />
+        <div className="w-full bg-gradient-to-b from-[rgba(10,12,20,0.15)] to-[rgba(10,12,20,0.35)] h-full rounded-2xl" style={{ borderRadius: 'var(--radius-video)' }} />
       </div>
 
       {/* Main Responsive Content Container */}
@@ -111,7 +111,7 @@ export default function Hero() {
 
         <p
           ref={textRef}
-          className="text-white/80 max-w-2xl mx-auto mb-10 opacity-90 leading-relaxed font-body"
+          className="text-foreground/80 max-w-2xl mx-auto mb-10 opacity-90 leading-relaxed font-body"
           style={{
             fontSize: 'clamp(0.95rem, 2vw, 1.15rem)'
           }}
@@ -119,7 +119,7 @@ export default function Hero() {
           Fiveters is a premier digital marketing agency driving exponential growth through high-performance ads, SEO, creative design, and automated retention systems.
         </p>
 
-        {/* Buttons responsive stack */}
+
         <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-sm sm:max-w-none">
           <RollingButton
             text="Book a Consultation"
@@ -128,8 +128,7 @@ export default function Hero() {
           />
           <RollingButton
             text="Explore Services"
-            className="w-full sm:w-auto text-[#FBEDD3] font-semibold px-7 py-3.5 rounded-full border hover:bg-white/10 active:scale-[0.98] hover:transition hover:duration-200 btn-shimmer cursor-pointer uppercase tracking-wider text-xs"
-            style={{ backgroundColor: 'rgba(251, 237, 211, 0.12)', borderColor: 'rgba(251, 237, 211, 0.25)' }}
+            className="w-full sm:w-auto text-foreground font-semibold px-7 py-3.5 rounded-full border border-foreground/20 hover:bg-foreground/5 active:scale-[0.98] hover:transition hover:duration-200 btn-shimmer cursor-pointer uppercase tracking-wider text-xs bg-foreground/3"
           />
         </div>
       </div>

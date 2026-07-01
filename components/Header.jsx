@@ -137,6 +137,15 @@ export default function Header() {
   useEffect(() => {
     const saved = window.localStorage.getItem("theme");
     if (saved) setTheme(saved);
+
+    const handleThemeChange = () => {
+      const currentTheme = window.localStorage.getItem("theme") || "dark";
+      setTheme(currentTheme);
+    };
+    window.addEventListener("themechange", handleThemeChange);
+    return () => {
+      window.removeEventListener("themechange", handleThemeChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -167,19 +176,16 @@ export default function Header() {
         ref={rootRef}
         className="mx-auto flex items-center justify-between gap-6 px-6 py-3.5 rounded-full backdrop-blur-xl border shadow-2xl transition-all duration-300 w-full"
         style={{
-          backgroundColor: "rgb(159 159 159 / 28%)",
-          borderColor: "rgba(255, 255, 255, 0.08)",
+          backgroundColor: "rgba(120, 120, 120, 0.15)",
+          borderColor: "var(--color-surface-strong)",
         }}
         aria-label="Main navigation"
       >
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="header-logo w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer">
+          <div className="header-logo w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer bg-white/10 border border-white/10">
             <img src="/logo/logo1.png" alt="" />
           </div>
-          {/* <span className="font-heading font-bold text-white tracking-tight text-lg">
-            fiveters
-          </span> */}
         </div>
 
         {/* Desktop Navigation Links (hidden on mobile) */}
@@ -195,7 +201,7 @@ export default function Header() {
                 <>
                   <button
                     onClick={() => setOpenKey(openKey === item.key ? null : item.key)}
-                    className={`inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide text-white/80 hover:text-white transition duration-200 py-2 cursor-pointer ${openKey === item.key ? "text-white" : ""
+                    className={`inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide text-foreground/80 hover:text-foreground transition duration-200 py-2 cursor-pointer ${openKey === item.key ? "text-foreground" : ""
                       }`}
                     aria-expanded={openKey === item.key}
                   >
@@ -209,7 +215,7 @@ export default function Header() {
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`transform transition-transform duration-300 ${openKey === item.key ? "rotate-180 text-purple-400" : "text-white/40"
+                      className={`transform transition-transform duration-300 ${openKey === item.key ? "rotate-180 text-purple-400" : "text-foreground/40"
                         }`}
                       aria-hidden
                     >
@@ -219,30 +225,31 @@ export default function Header() {
 
                   {/* Dropdown Box */}
                   <div
-                    className={`absolute left-1/2 top-full mt-3 -translate-x-1/2 w-80 rounded-[22px] bg-[#0c0d13]/95 backdrop-blur-2xl border border-white/[0.07] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] p-2.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${openKey === item.key
+                    className={`absolute left-1/2 top-full mt-3 -translate-x-1/2 w-80 rounded-[22px] bg-background/95 backdrop-blur-2xl border border-foreground/[0.08] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4)] p-2.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${openKey === item.key
                       ? "opacity-100 translate-y-0 pointer-events-auto scale-100"
                       : "opacity-0 -translate-y-4 pointer-events-none scale-95"
                       }`}
                   >
-                    <div className="flex flex-col divide-y divide-white/[0.04]">
+                    <div className="flex flex-col divide-y divide-foreground/[0.04]">
                       {item.children.map((c) => (
                         <a
                           key={c.title}
                           href={c.href}
-                          className="flex items-center gap-3.5 p-3 transition-all duration-200 hover:bg-white/[0.04] first:rounded-t-[16px] last:rounded-b-[16px] group/item"
+                          className="flex items-center gap-3.5 p-3 transition-all duration-200 hover:bg-foreground/[0.04] first:rounded-t-[16px] last:rounded-b-[16px] group/item"
                         >
                           {c.icon ? (
-                            <div className="w-9 h-9 rounded-xl bg-[#171a25]/90 border border-white/[0.08] flex items-center justify-center text-white/70 group-hover/item:text-purple-400 group-hover/item:border-purple-500/30 transition-colors">
+                            <div className="w-9 h-9 rounded-xl bg-surface/90 border border-foreground/[0.08] flex items-center justify-center text-foreground/70 group-hover/item:text-purple-400 group-hover/item:border-purple-500/30 transition-colors">
                               {c.icon}
                             </div>
-                          ) : (
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary/60 ml-2 group-hover/item:bg-primary transition-colors" />
+                          ) : (<></>
+                            // <div className="w-1.5 h-1.5 rounded-full bg-primary/60 ml-2 group-hover/item:bg-primary transition-colors" />
+
                           )}
                           <div className="flex-1">
-                            <div className="text-sm font-semibold text-white/90 group-hover/item:text-white transition-colors tracking-wide" style={{ fontFamily: "var(--font-heading)" }}>
+                            <div className="text-sm font-semibold text-foreground/90 group-hover/item:text-foreground transition-colors tracking-wide" style={{ fontFamily: "var(--font-heading)" }}>
                               {c.title}
                             </div>
-                            <div className="text-[11px] text-white/45 mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
+                            <div className="text-[11px] text-foreground/45 mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
                               {c.desc}
                             </div>
                           </div>
@@ -254,7 +261,7 @@ export default function Header() {
               ) : (
                 <a
                   href={item.href}
-                  className="inline-flex items-center text-sm font-semibold tracking-wide text-white/80 hover:text-white transition duration-200 py-2"
+                  className="inline-flex items-center text-sm font-semibold tracking-wide text-foreground/80 hover:text-foreground transition duration-200 py-2"
                 >
                   {item.label}
                 </a>
@@ -272,7 +279,7 @@ export default function Header() {
 
           {/* Mobile Hamburger Toggle (breadcrumb icon) */}
           <button
-            className="md:hidden p-2.5 rounded-full border border-white/[0.08] text-white/80 hover:text-white flex items-center justify-center transition-all bg-white/[0.02] cursor-pointer"
+            className="md:hidden p-2.5 rounded-full border border-foreground/10 text-foreground/80 hover:text-foreground flex items-center justify-center transition-all bg-foreground/[0.02] cursor-pointer"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

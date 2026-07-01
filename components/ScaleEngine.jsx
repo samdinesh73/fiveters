@@ -82,7 +82,7 @@ export default function ScaleEngine() {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
-          <span className="px-3.5 py-1 bg-red-950/20 text-[#9a0002] border border-[#9a0002]/15 text-[10px] font-bold rounded-full uppercase tracking-widest inline-block font-heading mb-4">
+          <span className="px-3.5 py-1 bg-[#efe6dd] text-[#9a0002] border border-[#9a0002]/15 text-[10px] font-bold rounded-full uppercase tracking-widest inline-block font-heading mb-4">
             Our Scale Engine
           </span>
           <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-[1.1] mb-6">

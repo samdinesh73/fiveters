@@ -43,9 +43,9 @@ const PARTNER_LOGOS = [
 
 export default function PartnerLogos() {
   return (
-    <section className="bg-[#07080a] py-14 overflow-hidden border-b border-white/[0.02] relative z-10">
+    <section className="bg-background py-14 overflow-hidden border-b border-foreground/[0.02] relative z-10">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-[#efe6dd]/35 font-heading">
+        <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-foreground/45 font-heading">
           Trusted Partners & Ad Platforms
         </h3>
       </div>
@@ -59,7 +59,7 @@ export default function PartnerLogos() {
           pauseOnHover={true}
           scaleOnHover={true}
           fadeOut={true}
-          fadeOutColor="#07080a"
+          fadeOutColor="var(--background)"
           ariaLabel="Technology partners and ad platforms"
         />
       </div>

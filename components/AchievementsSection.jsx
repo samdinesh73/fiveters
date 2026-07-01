@@ -85,7 +85,7 @@ function CircularText({ text, spinDuration = 20, onHover = "speedUp" }) {
               fontWeight: 700,
               textTransform: "uppercase",
               textAlign: "center",
-              color: "#efe6dd",
+              color: "var(--foreground)",
               transform,
               WebkitTransform: transform,
               transition: "all 0.5s cubic-bezier(0,0,0,1)",
@@ -152,7 +152,7 @@ function CounterDigit({ place, value, height }) {
   );
 }
 
-function Counter({ value, places, fontSize = 36, textColor = "#fff", fontWeight = 900, gradientFrom = "#07080a" }) {
+function Counter({ value, places, fontSize = 36, textColor = "var(--foreground)", fontWeight = 900, gradientFrom = "var(--background)" }) {
   const height = fontSize;
   return (
     <span style={{ position: "relative", display: "inline-block" }}>
@@ -234,7 +234,7 @@ function StatOrb({ stat, counted }) {
       >
         {/* Dashed decorative ring */}
         <div
-          className="absolute inset-0 rounded-full border border-dashed border-white/10 group-hover:border-white/20 transition-colors duration-500"
+          className="absolute inset-0 rounded-full border border-dashed border-foreground/10 group-hover:border-foreground/20 transition-colors duration-500"
           style={{ margin: 4 }}
         />
 
@@ -248,11 +248,11 @@ function StatOrb({ stat, counted }) {
               value={displayValue}
               places={stat.places}
               fontSize={36}
-              textColor="#ffffff"
+              textColor="var(--foreground)"
               fontWeight={900}
-              gradientFrom="#07080a"
+              gradientFrom="var(--background)"
             />
-            <span className="font-heading font-black text-white leading-none" style={{ fontSize: 22 }}>
+            <span className="font-heading font-black text-foreground leading-none" style={{ fontSize: 22 }}>
               {stat.unit}
             </span>
           </div>
@@ -260,7 +260,7 @@ function StatOrb({ stat, counted }) {
           <span className="font-heading font-bold uppercase tracking-widest mt-1 text-[#9a0002]" style={{ fontSize: 9 }}>
             {stat.label}
           </span>
-          <span className="font-body uppercase tracking-wider text-white/40" style={{ fontSize: 8 }}>
+          <span className="font-body uppercase tracking-wider text-foreground/45" style={{ fontSize: 8 }}>
             {stat.sublabel}
           </span>
         </div>
@@ -322,7 +322,7 @@ export default function AchievementsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-14 md:py-28 bg-[#07080a] overflow-hidden border-t border-white/[0.03]"
+      className="relative w-full py-14 md:py-28 bg-background overflow-hidden border-t border-foreground/[0.03]"
     >
       {/* Ambient glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#9a0002]/5 rounded-full blur-[140px] pointer-events-none" />
@@ -335,13 +335,13 @@ export default function AchievementsSection() {
           <span className="inline-block text-[10px] uppercase tracking-widest text-[#9a0002] font-bold font-body mb-4">
             By The Numbers
           </span>
-          <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-foreground tracking-tight leading-tight">
             Proof that's written{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-[#9a0002]">
               in results
             </span>
           </h2>
-          <p className="mt-4 text-sm md:text-base text-white/50 font-body leading-relaxed">
+          <p className="mt-4 text-sm md:text-base text-foreground/50 font-body leading-relaxed">
             Real numbers from real campaigns. No vanity metrics — just measurable growth.
           </p>
         </div>
@@ -355,11 +355,11 @@ export default function AchievementsSection() {
 
         {/* Divider */}
         <div className="mt-20 flex items-center gap-4">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <span className="text-white/20 text-[10px] uppercase tracking-widest font-body">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+          <span className="text-foreground/20 text-[10px] uppercase tracking-widest font-body">
             Verified metrics from live campaigns
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
         </div>
 
       </div>

@@ -5,7 +5,7 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function BrandReveal() {
   return (
-    <section className="bg-[#07080a] text-[#efe6dd] py-28 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-white/[0.02]">
+    <section className="bg-background text-foreground py-28 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-foreground/[0.02]">
       {/* Subtle background red gradient spot */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-[#9a0002]/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -21,7 +21,7 @@ export default function BrandReveal() {
           baseRotation={2}
           blurStrength={8}
           containerClassName="text-center font-heading max-w-4xl mx-auto"
-          textClassName="font-extrabold tracking-tight text-white"
+          textClassName="font-extrabold tracking-tight text-foreground"
           rotationEnd="bottom 90%"
           wordAnimationEnd="bottom 75%"
         >

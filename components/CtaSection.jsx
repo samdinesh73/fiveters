@@ -104,7 +104,7 @@ export default function CtaSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#07080a] text-white py-28 px-6 flex flex-col items-center justify-center overflow-hidden border-t border-white/[0.02]"
+      className="relative w-full bg-background text-foreground py-28 px-6 flex flex-col items-center justify-center overflow-hidden border-t border-foreground/[0.02]"
     >
       {/* DotField background layer */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
@@ -130,34 +130,34 @@ export default function CtaSection() {
         className="flex items-center justify-center -space-x-4 mb-10"
       >
         {/* Avatar 1 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-indigo-400 transition-all duration-300">
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-indigo-400 transition-all duration-300">
           <img src="/images/team_ceo.png" alt="" />
         </div>
 
         {/* Avatar 2 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-amber-400 transition-all duration-300">
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-amber-400 transition-all duration-300">
           <img src="/images/team_creative.png" alt="" />
         </div>
 
         {/* Avatar 3 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-red-400 transition-all duration-300">
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-red-400 transition-all duration-300">
           <img src="/images/team_performance.png" alt="" />
         </div>
 
         {/* Avatar 4 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
           <img src="/images/team_ceo.png" alt="" />
         </div>
 
         {/* Avatar 5 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#07080a] overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
           <img src="/images/team_creative.png" alt="" />
         </div>
       </div>
 
       {/* Main Title Heading */}
       <div ref={titleRef} className="text-center mb-8 relative z-10">
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-[32px] sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.12] max-w-4xl mx-auto font-heading">
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-[#9a0002] text-[32px] sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.12] max-w-4xl mx-auto font-heading">
           Turn clicks{" "}
           <span className="capsule-pill inline-flex items-center justify-center w-[62px] sm:w-[84px] md:w-[110px] h-[28px] sm:h-[38px] md:h-[50px] rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-orange-400 mx-1 md:mx-2 overflow-hidden align-middle border border-white/10 shadow-lg relative group transition-transform duration-300 hover:scale-105">
             <img src="/images/marketing_showcase.png" alt="" />
@@ -176,16 +176,16 @@ export default function CtaSection() {
         ref={contentRef}
         className="flex flex-col items-center text-center relative z-10"
       >
-        <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-lg mx-auto font-light leading-relaxed mb-10" style={{ fontFamily: "var(--font-body)" }}>
+        <p className="text-foreground/60 text-xs sm:text-sm md:text-base max-w-lg mx-auto font-light leading-relaxed mb-10" style={{ fontFamily: "var(--font-body)" }}>
           No guesswork. We use AI + proven marketing systems to scale ads, SEO, and conversion.
         </p>
 
         {/* Strategy Call Button */}
         <RollingButton
           text="Book a strategy call"
-          className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black font-semibold text-xs sm:text-sm rounded-[20px] flex items-center gap-3 transition-all duration-300 hover:bg-neutral-100 hover:scale-[1.03] active:scale-[0.97] shadow-xl hover:shadow-[0_15px_30px_rgba(255,255,255,0.08)] cursor-pointer font-heading tracking-wide"
+          className="px-6 sm:px-8 py-3.5 sm:py-4 bg-foreground text-background font-semibold text-xs sm:text-sm rounded-[20px] flex items-center gap-3 transition-all duration-300 hover:bg-foreground/90 hover:scale-[1.03] active:scale-[0.97] shadow-xl cursor-pointer font-heading tracking-wide"
         >
-          <div className="w-5.5 h-5.5 rounded-full bg-black flex items-center justify-center text-white ml-3">
+          <div className="w-5.5 h-5.5 rounded-full bg-background flex items-center justify-center text-foreground ml-3">
             <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6" />
             </svg>
@@ -197,7 +197,7 @@ export default function CtaSection() {
           {/* Curved dashed arrow pointing up-right to the text */}
           <svg
             viewBox="0 0 100 45"
-            className="text-white/35 transform -scale-x-100 rotate-[-15deg] absolute -left-12 -top-2 w-14 h-9 hidden md:block"
+            className="text-foreground/35 transform -scale-x-100 rotate-[-15deg] absolute -left-12 -top-2 w-14 h-9 hidden md:block"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -208,7 +208,7 @@ export default function CtaSection() {
           </svg>
 
           <span
-            className="text-white/50 text-[17px] tracking-wide font-light italic"
+            className="text-foreground/50 text-[17px] tracking-wide font-light italic"
             style={{ fontFamily: "'Caveat', cursive" }}
           >
             No sign up required

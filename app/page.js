@@ -15,10 +15,15 @@ import BrandReveal from "../components/BrandReveal";
 import BrandMarquee from "../components/BrandMarquee";
 import CtaSection from "../components/CtaSection";
 import Footer from "../components/Footer";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import Testimonials from "../components/Testimonials";
+import PerspectiveProjects from "../components/PerspectiveProjects";
+import FeatureGrid from "../components/FeatureGrid";
 
 export default function Home() {
   return (
     <div>
+      <ThemeSwitcher />
       <Header />
       <main>
         {/* <HeroRun /> */}
@@ -26,13 +31,17 @@ export default function Home() {
 
         <LaserShowcase />
         {/* <MasonryGallery /> */}<BrandReveal />
-        <AchievementsSection />
+        <FeatureGrid />
+
         <Services />
+        <AchievementsSection />
+        <PerspectiveProjects />
         {/* <ProcessSteps /> */}
         <PartnerLogos />
         <SuccessStudies />
-        <ScaleEngine />
+        {/* <ScaleEngine /> */}
         <TeamSection />
+        <Testimonials />
         <BrandMarquee />
         {/* <StickyScroll /> */}
         <CtaSection />
