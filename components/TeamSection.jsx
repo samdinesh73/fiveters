@@ -89,7 +89,7 @@ export default function TeamSection() {
           scrollTrigger: {
             trigger: el,
             start: "top bottom-=15%",
-            toggleActions: "play none none reset",
+            toggleActions: "play none none none",
           },
         }
       );

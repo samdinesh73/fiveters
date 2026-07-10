@@ -22,7 +22,7 @@ export default function MasonryGallery() {
               {item.badge ? <div className="text-sm font-semibold" style={{ color: 'var(--text-muted)' }}>{item.badge}</div> : null}
             </div>
           ))}</div>
-      </div>
+      </div> 
     </section>
   );
 }

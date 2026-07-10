@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import RollingButton from "./RollingButton";
 import { gsap } from "gsap";
+import { ExpandableScreenTrigger } from "./ui/expandable-screen";
 
 const MENU = [
   {
@@ -101,11 +102,11 @@ export default function Header() {
 
   useEffect(() => {
     // Shrunk nav pill state
-    gsap.set(rootRef.current, { width: "80px", overflow: "hidden", whiteSpace: "nowrap" });
+    gsap.set(rootRef.current, { width: "80px", overflow: "hidden", whiteSpace: "nowrap", background: "none" });
     gsap.set(menuRef.current, { opacity: 0, scale: 0.9, pointerEvents: "none" });
     gsap.set(actionsRef.current, { opacity: 0, scale: 0.9, pointerEvents: "none" });
 
-    const tl = gsap.timeline({ delay: 0.8 });
+    const tl = gsap.timeline({ delay: 2 });
 
     // 1. Expand nav to full width
     tl.to(rootRef.current, {
@@ -113,7 +114,7 @@ export default function Header() {
       duration: 1.0,
       ease: "power4.inOut",
       onComplete: () => {
-        gsap.set(rootRef.current, { overflow: "visible", whiteSpace: "normal" });
+        gsap.set(rootRef.current, { overflow: "visible", whiteSpace: "normal", background: "#78787826" });
       }
     })
       // 2. Fade in action button ("Try now") first on the right
@@ -183,7 +184,7 @@ export default function Header() {
       >
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="header-logo w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer bg-white/10 border border-white/10">
+          <div className="header-logo w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer ">
             <img src="/logo/logo1.png" alt="" />
           </div>
         </div>
@@ -272,10 +273,12 @@ export default function Header() {
 
         {/* Action Button & Hamburger Toggle */}
         <div ref={actionsRef} className="flex items-center gap-4">
-          <RollingButton
-            text="Try now"
-            className="hidden md:inline-flex px-5 py-2.5 bg-white text-black font-semibold text-xs tracking-wide uppercase rounded-full shadow-lg hover:bg-neutral-100 hover:scale-[1.02] active:scale-[0.98] transition duration-200 cursor-pointer"
-          />
+          <ExpandableScreenTrigger className="hidden md:inline-flex">
+            <RollingButton
+              text="Try now"
+              className="px-5 py-2.5 bg-white text-black font-semibold text-xs tracking-wide uppercase rounded-full shadow-lg hover:bg-neutral-100 hover:scale-[1.02] active:scale-[0.98] transition duration-200 cursor-pointer"
+            />
+          </ExpandableScreenTrigger>
 
           {/* Mobile Hamburger Toggle (breadcrumb icon) */}
           <button

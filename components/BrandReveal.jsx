@@ -20,7 +20,7 @@ export default function BrandReveal() {
           enableBlur={true}
           baseRotation={2}
           blurStrength={8}
-          containerClassName="text-center font-heading max-w-4xl mx-auto"
+          containerClassName="text-center font-heading max-w-5xl mx-auto"
           textClassName="font-extrabold tracking-tight text-foreground"
           rotationEnd="bottom 90%"
           wordAnimationEnd="bottom 75%"

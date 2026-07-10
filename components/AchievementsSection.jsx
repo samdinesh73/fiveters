@@ -229,7 +229,7 @@ function StatOrb({ stat, counted }) {
         style={{
           width: 200,
           height: 200,
-          filter: `drop-shadow(0 0 24px ${stat.glow}) drop-shadow(0 0 6px ${stat.glow})`,
+          // filter: `drop-shadow(0 0 24px ${stat.glow}) drop-shadow(0 0 6px ${stat.glow})`,
         }}
       >
         {/* Dashed decorative ring */}
