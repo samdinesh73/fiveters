@@ -53,6 +53,48 @@ export const metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fivetersmedia.com/#organization",
+      "name": "Fiveters Media",
+      "url": "https://fivetersmedia.com",
+      "logo": "https://fivetersmedia.com/logo.png",
+      "sameAs": [
+        "https://instagram.com",
+        "https://linkedin.com",
+        "https://youtube.com"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-6382118130",
+        "contactType": "sales",
+        "email": "hola@fivetersmedia.com"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fivetersmedia.com/#website",
+      "url": "https://fivetersmedia.com",
+      "name": "Fiveters Media",
+      "publisher": {
+        "@id": "https://fivetersmedia.com/#organization"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Cinematic Digital Marketing & Web Development Services",
+      "provider": {
+        "@id": "https://fivetersmedia.com/#organization"
+      },
+      "serviceType": "Digital Marketing, SEO, Web Design, Paid Ads",
+      "areaServed": "Worldwide"
+    }
+  ]
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -61,6 +103,10 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <TargetCursor
           targetSelector="a,button,footer a, footer button, header a, header button, header .header-logo"
           spinDuration={2.5}

@@ -4,6 +4,16 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import RollingButton from "./RollingButton";
 import DotField from "./DotField";
+import { ExpandableScreenTrigger } from "./ui/expandable-screen";
+import { MaskedAvatars } from "./ui/masked-avatars";
+
+const CTA_AVATARS = [
+  { avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200", name: "Alex Rivera" },
+  { avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200", name: "Marcus Vance" },
+  { avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200", name: "Elena Rostova" },
+  { avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200", name: "Siddharth Mehta" },
+  { avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200&h=200", name: "Chloe Dubois" },
+];
 
 export default function CtaSection() {
   const containerRef = useRef(null);
@@ -127,47 +137,16 @@ export default function CtaSection() {
       {/* Avatars Container */}
       <div
         ref={avatarsRef}
-        className="flex items-center justify-center -space-x-4 mb-10"
+        className="flex items-center justify-center mb-10"
       >
-        {/* Avatar 1 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-indigo-400 transition-all duration-300">
-          <img src="/images/team_ceo.png" alt="" />
-        </div>
-
-        {/* Avatar 2 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-amber-400 transition-all duration-300">
-          <img src="/images/team_creative.png" alt="" />
-        </div>
-
-        {/* Avatar 3 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-red-400 transition-all duration-300">
-          <img src="/images/team_performance.png" alt="" />
-        </div>
-
-        {/* Avatar 4 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
-          <img src="/images/team_ceo.png" alt="" />
-        </div>
-
-        {/* Avatar 5 */}
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-background overflow-hidden shadow-2xl relative hover:z-10 hover:scale-105 hover:border-cyan-400 transition-all duration-300">
-          <img src="/images/team_creative.png" alt="" />
-        </div>
+        <MaskedAvatars avatars={CTA_AVATARS} size={60} border={3} column={36} ringed={false} />
       </div>
 
       {/* Main Title Heading */}
       <div ref={titleRef} className="text-center mb-8 relative z-10">
         <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-[#9a0002] text-[32px] sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.12] max-w-4xl mx-auto font-heading">
-          Turn clicks{" "}
-          <span className="capsule-pill inline-flex items-center justify-center w-[62px] sm:w-[84px] md:w-[110px] h-[28px] sm:h-[38px] md:h-[50px] rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-orange-400 mx-1 md:mx-2 overflow-hidden align-middle border border-white/10 shadow-lg relative group transition-transform duration-300 hover:scale-105">
-            <img src="/images/marketing_showcase.png" alt="" />
-          </span>{" "}
-          Into customers
-          <br />
-          <span className="capsule-box inline-flex items-center justify-center w-[40px] sm:w-[50px] md:w-[68px] h-[40px] sm:h-[50px] md:h-[68px] rounded-[14px] sm:rounded-[18px] bg-teal-400 mx-1.5 md:mx-2.5 overflow-hidden align-middle border border-white/10 shadow-lg rotate-[-12deg] relative group transition-transform duration-300 hover:scale-105 hover:rotate-[0deg]">
-            <img src="/images/avatar.jpg" alt="" />
-          </span>{" "}
-          the smarter way
+          Ready to see what scale <br className="hidden sm:inline" />
+          actually looks like?
         </h2>
       </div>
 
@@ -176,21 +155,23 @@ export default function CtaSection() {
         ref={contentRef}
         className="flex flex-col items-center text-center relative z-10"
       >
-        <p className="text-foreground/60 text-xs sm:text-sm md:text-base max-w-lg mx-auto font-light leading-relaxed mb-10" style={{ fontFamily: "var(--font-body)" }}>
-          No guesswork. We use AI + proven marketing systems to scale ads, SEO, and conversion.
+        <p className="text-foreground/60 text-xs sm:text-sm md:text-base max-w-lg mx-auto font-light leading-relaxed mb-10 font-body">
+          Get a free audit of your SEO and paid channels — no obligation, no generic report, just what's actually working.
         </p>
 
         {/* Strategy Call Button */}
-        <RollingButton
-          text="Book a strategy call"
-          className="px-6 sm:px-8 py-3.5 sm:py-4 bg-foreground text-background font-semibold text-xs sm:text-sm rounded-[20px] flex items-center gap-3 transition-all duration-300 hover:bg-foreground/90 hover:scale-[1.03] active:scale-[0.97] shadow-xl cursor-pointer font-heading tracking-wide"
-        >
-          <div className="w-5.5 h-5.5 rounded-full bg-background flex items-center justify-center text-foreground ml-3">
-            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </div>
-        </RollingButton>
+        <ExpandableScreenTrigger>
+          <RollingButton
+            text="Request Your Free Scale Audit"
+            className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#9a0002] text-white font-semibold text-xs sm:text-sm rounded-[20px] flex items-center gap-3 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-xl cursor-pointer font-heading tracking-wide"
+          >
+            <div className="w-5.5 h-5.5 rounded-full bg-white flex items-center justify-center text-[#9a0002] ml-3">
+              <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </div>
+          </RollingButton>
+        </ExpandableScreenTrigger>
 
         {/* Sub-note with curved indicator arrow */}
         <div className="flex items-center justify-center mt-6 relative h-10 w-48">

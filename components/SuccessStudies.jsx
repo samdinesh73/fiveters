@@ -58,104 +58,89 @@ export default function SuccessStudies() {
               skewAmount={4}
             >
               {/* Card 1 */}
-              <Card className={` border border-[#9a0002]/[0.08] p-6 rounded-[22px] flex flex-col justify-between shadow-2xl h-full w-full
-                ${theme === "light"
-                  ? "bg-white"
-                  : "bg-black"
-                } 
-                `}>
-                <div className="space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-wider text-[#9a0002] font-semibold bg-[#9a0002]/10 px-2.5 py-1 rounded-full">
-                      E-COMMERCE
-                    </span>
-                    <span className="text-xs text-foreground/45 font-body">Case Study 01</span>
+              <Card className={`border border-[#9a0002]/[0.08] p-7 rounded-[22px] flex flex-col justify-between shadow-2xl h-full w-full
+                ${theme === "light" ? "bg-white" : "bg-black"}
+              `}>
+                <div className="space-y-4 flex flex-col h-full justify-between">
+                  <div className="space-y-1">
+                    <div className="text-5xl font-black font-heading text-[#9a0002] tracking-tight leading-none">
+                      +312%
+                    </div>
+                    <div className="text-xs font-semibold text-foreground tracking-wide uppercase font-body mt-2">
+                      organic traffic in 90 days
+                    </div>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading tracking-tight text-foreground leading-snug">
-                    380% Return on Ad Spend Increase
-                  </h3>
-                  <p className="text-[11px] text-foreground/60 leading-relaxed font-body">
-                    We rebuilt their Meta ad funnel and search retargeting from scratch, scaling search volume while lowering acquisition costs by 42%.
-                  </p>
-                  <div className="w-full h-24 rounded-xl overflow-hidden bg-background/50 border border-foreground/5 relative">
-                    <img
-                      src="/service_conversion.png"
-                      alt="ROAS growth charts"
-                      className="w-full h-full object-cover opacity-100"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+
+                  <div>
+                    <div className="text-[10px] font-bold text-foreground/45 uppercase tracking-wider font-heading">
+                      Aura Cosmetics — DTC Cosmetics
+                    </div>
+                    <p className="text-[11px] text-foreground/60 leading-relaxed font-body mt-2 line-clamp-3">
+                      Aura came to us with strong products and flat organic growth. We rebuilt their content architecture around buyer-intent search terms and rewired internal linking — turning search into their top acquisition channel.
+                    </p>
                   </div>
-                </div>
-                <div className="text-[10px] font-bold text-foreground/75 font-heading tracking-wider uppercase pt-3 border-t border-foreground/[0.04]">
-                  Scale Activewear Apparel
+
+                  <div className="text-[10px] font-bold text-[#9a0002] font-heading flex items-center gap-1 cursor-pointer hover:underline pt-3 border-t border-foreground/[0.04]">
+                    View the full breakdown →
+                  </div>
                 </div>
               </Card>
 
               {/* Card 2 */}
-              <Card className={` border border-foreground/[0.08] p-6 rounded-[22px] flex flex-col justify-between shadow-2xl h-full w-full
-                ${theme === "light"
-                  ? "bg-white"
-                  : "bg-black"
-                } 
-                `}>
-                <div className="space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-wider text-[#d97706] font-semibold bg-[#d97706]/10 px-2.5 py-1 rounded-full">
-                      B2B LEAD GEN
-                    </span>
-                    <span className="text-xs text-foreground/45 font-body">Case Study 02</span>
+              <Card className={`border border-foreground/[0.08] p-7 rounded-[22px] flex flex-col justify-between shadow-2xl h-full w-full
+                ${theme === "light" ? "bg-white" : "bg-black"}
+              `}>
+                <div className="space-y-4 flex flex-col h-full justify-between">
+                  <div className="space-y-1">
+                    <div className="text-5xl font-black font-heading text-[#d97706] tracking-tight leading-none">
+                      +180%
+                    </div>
+                    <div className="text-xs font-semibold text-foreground tracking-wide uppercase font-body mt-2">
+                      demo signup conversions
+                    </div>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading tracking-tight text-foreground leading-snug">
-                    +180% Demo Signup Conversions
-                  </h3>
-                  <p className="text-[11px] text-foreground/60 leading-relaxed font-body">
-                    Through intent-focused Google Search campaigns and technical keyword cluster optimization, we captured high-intent pipeline leads.
-                  </p>
-                  <div className="w-full h-24 rounded-xl overflow-hidden bg-background/50 border border-foreground/5 relative">
-                    <img
-                      src="/service_content.png"
-                      alt="Organic search intent growth"
-                      className="w-full h-full object-cover opacity-80"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+
+                  <div>
+                    <div className="text-[10px] font-bold text-foreground/45 uppercase tracking-wider font-heading">
+                      Logistics Software Group — B2B Lead Gen
+                    </div>
+                    <p className="text-[11px] text-foreground/60 leading-relaxed font-body mt-2 line-clamp-3">
+                      Through intent-focused Google Search campaigns and technical keyword cluster optimization, we captured high-intent pipeline leads and decreased customer acquisition cost by 42%.
+                    </p>
                   </div>
-                </div>
-                <div className="text-[10px] font-bold text-foreground/75 font-heading tracking-wider uppercase pt-3 border-t border-foreground/[0.04]">
-                  Logistics Software Group
+
+                  <div className="text-[10px] font-bold text-[#d97706] font-heading flex items-center gap-1 cursor-pointer hover:underline pt-3 border-t border-foreground/[0.04]">
+                    View the full breakdown →
+                  </div>
                 </div>
               </Card>
 
               {/* Card 3 */}
-              <Card className={` border border-foreground/[0.08] p-6 rounded-[22px] flex flex-col justify-between shadow-2xl h-full w-full
-                ${theme === "light"
-                  ? "bg-white"
-                  : "bg-black"
-                } 
-                `}>
-                <div className="space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-wider text-[#2563eb] font-semibold bg-[#2563eb]/10 px-2.5 py-1 rounded-full">
-                      D2C GROWTH
-                    </span>
-                    <span className="text-xs text-foreground/45 font-body">Case Study 03</span>
+              <Card className={`border border-foreground/[0.08] p-7 rounded-[22px] flex flex-col justify-between shadow-2xl h-full w-full
+                ${theme === "light" ? "bg-white" : "bg-black"}
+              `}>
+                <div className="space-y-4 flex flex-col h-full justify-between">
+                  <div className="space-y-1">
+                    <div className="text-5xl font-black font-heading text-[#2563eb] tracking-tight leading-none">
+                      4.2x
+                    </div>
+                    <div className="text-xs font-semibold text-foreground tracking-wide uppercase font-body mt-2">
+                      revenue scale via TikTok & SMS
+                    </div>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold font-heading tracking-tight text-foreground leading-snug">
-                    4.2x Revenue Scale via TikTok & SMS
-                  </h3>
-                  <p className="text-[11px] text-foreground/60 leading-relaxed font-body">
-                    Leveraging high-hook creators combined with technical lifecycle retention flows, we drove customer lifetime value and organic reach.
-                  </p>
-                  <div className="w-full h-24 rounded-xl overflow-hidden bg-background/50 border border-foreground/5 relative">
-                    <img
-                      src="/service_creative.png"
-                      alt="Social creative dashboard"
-                      className="w-full h-full object-cover opacity-80"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+
+                  <div>
+                    <div className="text-[10px] font-bold text-foreground/45 uppercase tracking-wider font-heading">
+                      Scale Activewear — E-Commerce
+                    </div>
+                    <p className="text-[11px] text-foreground/60 leading-relaxed font-body mt-2 line-clamp-3">
+                      Leveraging high-hook creators combined with technical lifecycle retention flows, we drove customer lifetime value and organic reach while maintaining target ROAS.
+                    </p>
                   </div>
-                </div>
-                <div className="text-[10px] font-bold text-foreground/75 font-heading tracking-wider uppercase pt-3 border-t border-foreground/[0.04]">
-                  Cosmetics Brand Scaling
+
+                  <div className="text-[10px] font-bold text-[#2563eb] font-heading flex items-center gap-1 cursor-pointer hover:underline pt-3 border-t border-foreground/[0.04]">
+                    View the full breakdown →
+                  </div>
                 </div>
               </Card>
             </CardSwap>

@@ -2,6 +2,7 @@
 
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
 import './StaggeredMenu.css';
 
 export const StaggeredMenu = ({
@@ -282,7 +283,7 @@ export const StaggeredMenu = ({
 
       <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!isOpen}>
         <div className="sm-panel-inner">
-          
+
           {/* 1. Panel Header with Close Button and Brand logo */}
           <div className="flex items-center justify-between pb-6 border-b border-white/[0.06] mb-2">
             <span className="font-heading font-extrabold tracking-tight text-white text-xl">
@@ -326,7 +327,7 @@ export const StaggeredMenu = ({
                     </button>
 
                     {/* Accordion dropdown body using smooth height transition */}
-                    <div 
+                    <div
                       className="transition-all duration-300 ease-in-out overflow-hidden"
                       style={{
                         maxHeight: expandedKey === item.key ? "450px" : "0px",
@@ -335,9 +336,9 @@ export const StaggeredMenu = ({
                     >
                       <div className="grid grid-cols-1 gap-3 pl-1.5 mt-3">
                         {item.children.map((c) => (
-                          <a 
-                            key={c.title} 
-                            href={c.href} 
+                          <Link
+                            key={c.title}
+                            href={c.href}
                             onClick={onClose}
                             className="flex items-start gap-3.5 p-3 rounded-xl bg-white/[0.01] border border-white/[0.03] hover:bg-white/[0.03] hover:border-white/[0.08] transition-all duration-300 group/sub text-left"
                           >
@@ -354,19 +355,19 @@ export const StaggeredMenu = ({
                                 {c.desc}
                               </div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <a 
-                    href={item.href} 
+                  <Link
+                    href={item.href}
                     onClick={onClose}
                     className="text-xl font-bold text-white hover:text-[#9a0002] transition-colors block py-2 tracking-tight uppercase sm-panel-itemLabel font-heading"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}

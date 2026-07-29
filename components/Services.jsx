@@ -13,6 +13,7 @@ const SERVICES = [
     title: "Paid Ads & Search Engine Marketing",
     desc: "Scale acquisition with high-intent Meta, Google, and TikTok paid media funnels.",
     image: "/service_conversion.png",
+    metric: "4.8x average return on ad spend",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 70 L40 50 L60 60 L80 30" />
@@ -26,6 +27,7 @@ const SERVICES = [
     title: "Search Engine Optimization (SEO)",
     desc: "Dominate search engine rankings, capture organic intent, and multiply free pipeline leads.",
     image: "/service_content.png",
+    metric: "+312% average organic traffic increase",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="45" cy="45" r="20" />
@@ -39,6 +41,7 @@ const SERVICES = [
     title: "Website Design & Development",
     desc: "Deploy lightning-fast, conversion-optimized responsive web builds using Next.js and Tailwind.",
     image: "/service_creative.png",
+    metric: "+42% average increase in conversion rates",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="20" y="25" width="60" height="40" rx="4" />
@@ -52,6 +55,7 @@ const SERVICES = [
     title: "Custom Software Development",
     desc: "Architect scalable backend engines, SaaS cloud infrastructure, APIs, and headless business systems.",
     image: "/service_email.png",
+    metric: "99.99% uptime for headless backends",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M35 40 L20 50 L35 60" />
@@ -64,6 +68,7 @@ const SERVICES = [
     title: "Creative Copy & Visual Assets",
     desc: "Produce high-converting landing designs, cinematic short-form video ads, and engaging brand copy.",
     image: "/service_content.png",
+    metric: "2x higher hook rate on social ads",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M50 20 L80 35 L80 65 L50 80 L20 65 L20 35 Z" />
@@ -76,6 +81,7 @@ const SERVICES = [
     title: "Email & SMS Retention Campaigns",
     desc: "Automate retention flows, newsletters, and win-back sequences that maximize customer lifetime value.",
     image: "/service_email.png",
+    metric: "38% of total e-commerce revenue driven",
     icon: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="20" y="30" width="60" height="40" rx="3" />
@@ -282,6 +288,14 @@ export default function Services() {
                     }`}>
                     {s.desc}
                   </p>
+                  {s.metric && (
+                    <div className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-colors font-heading mt-3 ${theme === "light"
+                      ? "text-[#9a0002] group-hover:text-white"
+                      : "text-[#9a0002] group-hover:text-background"
+                      }`}>
+                      Proven proof: {s.metric}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

@@ -183,6 +183,7 @@ const STATS = [
     circular: "CLIENTS·SERVED·TRUSTED·BY·",
     spinDuration: 22,
     glow: "rgba(154,0,2,0.35)",
+    source: "Based on 150+ client audits, 2024-2026",
   },
   {
     value: 15,
@@ -193,6 +194,7 @@ const STATS = [
     circular: "REVENUE·GENERATED·SCALED·",
     spinDuration: 18,
     glow: "rgba(239,230,221,0.12)",
+    source: "Based on Shopify & Ads manager data",
   },
   {
     value: 4,
@@ -203,6 +205,7 @@ const STATS = [
     circular: "AVERAGE·ROAS·ACHIEVED·BY·",
     spinDuration: 20,
     glow: "rgba(154,0,2,0.35)",
+    source: "Based on all client accounts, 2024-2026",
   },
   {
     value: 380,
@@ -213,6 +216,7 @@ const STATS = [
     circular: "MAXIMUM·ROAS·GROWTH·RATE·",
     spinDuration: 16,
     glow: "rgba(239,230,221,0.12)",
+    source: "Based on top-tier accounts, 2025-2026",
   },
 ];
 
@@ -265,6 +269,12 @@ function StatOrb({ stat, counted }) {
           </span>
         </div>
       </div>
+      {/* Source attribution text under each orb */}
+      {stat.source && (
+        <span className="text-foreground/35 text-[9px] font-body uppercase mt-4 tracking-wider text-center max-w-[170px] pointer-events-none select-none">
+          {stat.source}
+        </span>
+      )}
     </div>
   );
 }

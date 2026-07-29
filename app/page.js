@@ -10,6 +10,7 @@ import Services from "../components/Services";
 import ProcessSteps from "../components/ProcessSteps";
 import SuccessStudies from "../components/SuccessStudies";
 import ScaleEngine from "../components/ScaleEngine";
+import Testimonials from "../components/Testimonials";
 import TeamSection from "../components/TeamSection";
 import AchievementsSection from "../components/AchievementsSection";
 import BrandReveal from "../components/BrandReveal";
@@ -17,10 +18,13 @@ import BrandMarquee from "../components/BrandMarquee";
 import CtaSection from "../components/CtaSection";
 import Footer from "../components/Footer";
 import ThemeSwitcher from "../components/ThemeSwitcher";
-import Testimonials from "../components/Testimonials";
 import PerspectiveProjects from "../components/PerspectiveProjects";
 import FeatureGrid from "../components/FeatureGrid";
 import ProjectSection from "../components/ProjectSection"
+import FAQSection from "../components/FAQSection";
+import FeatureCarouselSection from "../components/FeatureCarouselSection";
+import { ScrollDissolveReveal } from "@/components/ui/scroll-dissolve-reveal"
+
 
 import { ExpandableScreen, ExpandableScreenContent, useExpandableScreen } from "../components/ui/expandable-screen";
 import ConsultationForm from "../components/ConsultationForm";
@@ -37,32 +41,42 @@ export default function Home() {
         <ThemeSwitcher />
         <Header />
         <main>
-          {/* <HeroRun /> */}
+          {/* 1. Hero */}
           <Hero />
 
           <LaserShowcase />
           {/* <MasonryGallery /> */}<BrandReveal />
           <FeatureGrid />
 
-          <Services />
+          {/* 3. Stats Block */}
           <AchievementsSection />
-          <PerspectiveProjects />
+          {/* <PerspectiveProjects /> */}
           {/* <ProcessSteps /> */}
           <PartnerLogos />
           <SuccessStudies />
           <ProjectSection />
           {/* <ScaleEngine /> */}
-          <TeamSection />
+
+          <FeatureCarouselSection />
+
           <Testimonials />
           <BrandMarquee />
 
-          {/* <StickyScroll /> */}
+          {/* 10. FAQ */}
+          <FAQSection />
+
+          {/* 11. Final CTA banner */}
           <CtaSection />
+          {/* <ScrollDissolveReveal
+            imageFront="/marketing_showcase.png"
+            imageBack="/marketing_showcase.png"
+          /> */}
         </main>
+        {/* 12. Footer */}
         <Footer />
 
-        {/* Modal content placed at the root level, outside of GSAP scroll triggers and header transforms */}
-        <ExpandableScreenContent className="bg-black/95 text-white  mx-auto rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl flex flex-col justify-center overflow-y-auto">
+        {/* Modal content placed at the root level */}
+        <ExpandableScreenContent className="bg-black/95 text-white mx-auto rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl flex flex-col justify-center overflow-y-auto">
           <RootFormContainer />
         </ExpandableScreenContent>
       </div>

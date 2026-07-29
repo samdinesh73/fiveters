@@ -3,32 +3,33 @@ import React, { useEffect, useRef, useState } from "react";
 import RollingButton from "./RollingButton";
 import { gsap } from "gsap";
 import { ExpandableScreenTrigger } from "./ui/expandable-screen";
+import Link from "next/link";
 
 const MENU = [
   {
     label: "Services",
     key: "services",
     children: [
-      { title: "Paid Ads & SEM", desc: "Scale Google, Meta, and TikTok ad funnels", href: "#" },
-      { title: "Search Engine Optimization", desc: "Dominate search results and drive organic traffic", href: "#" },
-      { title: "Creative & Production", desc: "High-converting design, visual assets, and copy", href: "#" },
-      { title: "Email & SMS Marketing", desc: "Automated retention sequences that drive repeat sales", href: "#" },
+      { title: "Paid Ads & SEM", desc: "Scale Google, Meta, and TikTok ad funnels", href: "/services/paid-ads" },
+      { title: "Search Engine Optimization", desc: "Dominate search results and drive organic traffic", href: "/services/seo" },
+      { title: "Creative & Production", desc: "High-converting design, visual assets, and copy", href: "/services/creative" },
+      { title: "Email & SMS Marketing", desc: "Automated retention sequences that drive repeat sales", href: "/services/email-sms" },
     ],
   },
   {
     label: "Case Studies",
     key: "case-studies",
     children: [
-      { title: "E-Commerce Growth", desc: "3x return-on-ad-spend for retail brands", href: "#" },
-      { title: "B2B Lead Generation", desc: "Scale pipeline with targeted organic & paid strategies", href: "#" },
-      { title: "Local SEO Triumphs", desc: "Dominate local maps and geographical keywords", href: "#" },
+      { title: "E-Commerce Growth", desc: "3x return-on-ad-spend for retail brands", href: "/#results" },
+      { title: "B2B Lead Generation", desc: "Scale pipeline with targeted organic & paid strategies", href: "/#results" },
+      { title: "Local SEO Triumphs", desc: "Dominate local maps and geographical keywords", href: "/#results" },
     ],
   },
   {
     label: "Agency",
     key: "agency",
     children: [
-      { title: "About Us", desc: "Our team, marketing systems, and vision", href: "#" },
+      { title: "About Us", desc: "Our team, marketing systems, and vision", href: "/about" },
       { title: "Careers", desc: "Join the fiveters remote marketing team", href: "#" },
       { title: "Contact Us", desc: "Speak directly to an expert growth consultant", href: "#" },
     ],
@@ -45,7 +46,7 @@ const MENU = [
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.83 20.013a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
           </svg>
         ),
-        href: "#",
+        href: "/blog",
       },
       {
         title: "Marketing Guides",
@@ -55,7 +56,7 @@ const MENU = [
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
           </svg>
         ),
-        href: "#",
+        href: "/blog",
       },
       {
         title: "Growth Calculator",
@@ -65,7 +66,7 @@ const MENU = [
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 7.5l3 3m0 0l3-3m-3 3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         ),
-        href: "#",
+        href: "/#scale-engine",
       },
       {
         title: "Video Tutorials",
@@ -183,11 +184,11 @@ export default function Header() {
         aria-label="Main navigation"
       >
         {/* Logo Section */}
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <div className="header-logo w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 duration-200 cursor-pointer ">
             <img src="/logo/logo1.png" alt="" />
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Navigation Links (hidden on mobile) */}
         <ul ref={menuRef} className="hidden md:flex items-center gap-8">
@@ -233,7 +234,7 @@ export default function Header() {
                   >
                     <div className="flex flex-col divide-y divide-foreground/[0.04]">
                       {item.children.map((c) => (
-                        <a
+                        <Link
                           key={c.title}
                           href={c.href}
                           className="flex items-center gap-3.5 p-3 transition-all duration-200 hover:bg-foreground/[0.04] first:rounded-t-[16px] last:rounded-b-[16px] group/item"
@@ -254,18 +255,18 @@ export default function Header() {
                               {c.desc}
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
                 </>
               ) : (
-                <a
+                <Link
                   href={item.href}
                   className="inline-flex items-center text-sm font-semibold tracking-wide text-foreground/80 hover:text-foreground transition duration-200 py-2"
                 >
                   {item.label}
-                </a>
+                </Link>
               )}
             </li>
           ))}

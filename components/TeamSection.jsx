@@ -14,7 +14,7 @@ const TEAM_MEMBERS = [
   {
     name: "Alex Rivera",
     role: "Co-Founder & CEO",
-    image: "/images/team_ceo.png",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
     caption: "Strategic Lead",
     tagline: "Scales campaigns to 8-figures through predictive analytics.",
     instagram: "#",
@@ -25,7 +25,7 @@ const TEAM_MEMBERS = [
   {
     name: "Elena Rostova",
     role: "Head of Performance",
-    image: "/images/team_performance.png",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=400",
     caption: "Media Buyer",
     tagline: "Optimizes Meta & Google funnel acquisition at scale.",
     instagram: "#",
@@ -36,7 +36,7 @@ const TEAM_MEMBERS = [
   {
     name: "Marcus Vance",
     role: "Creative Director",
-    image: "/images/team_creative.png",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=400",
     caption: "Visual Director",
     tagline: "Translates core marketing hooks into cinematic visual assets.",
     instagram: "#",

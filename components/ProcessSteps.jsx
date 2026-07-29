@@ -5,20 +5,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const STEPS = [
   {
-    title: "Kickoff call & brand discovery",
-    desc: "We begin by understanding your vision and goals through a detailed discovery call to align on the project's direction.",
+    title: "Brief",
+    desc: "Discovery, audit, and one measurable goal agreed before any spend moves.",
   },
   {
-    title: "Strategy, wireframes & creative direction",
-    desc: "We translate discovery insights into an actionable strategy, mapping out key user journeys and visual design systems.",
+    title: "Storyboard",
+    desc: "Strategy and creative direction mapped like a production, not a checklist.",
   },
   {
-    title: "Design & high-fidelity prototyping",
-    desc: "We craft custom, premium visual designs and interactive prototypes, refining transitions and aesthetic details.",
+    title: "Shoot",
+    desc: "Campaigns built, pages engineered, creative produced.",
   },
   {
-    title: "Development & performance optimization",
-    desc: "We write clean, responsive frontend code, integrate seamless scroll animations, and optimize for blazing-fast speed.",
+    title: "Screen",
+    desc: "Live testing, real-time optimization, weekly reviews.",
+  },
+  {
+    title: "Scale",
+    desc: "What works gets budget. What doesn't gets cut.",
   },
 ];
 
@@ -110,14 +114,14 @@ export default function ProcessSteps() {
     >
       {/* Header Info */}
       <div className="max-w-4xl mx-auto text-center mb-24 relative z-30">
-        <span className="px-3.5 py-1 bg-green-950/20 text-[#4ade80] border border-[#4ade80]/15 text-[10px] font-bold rounded-full uppercase tracking-widest mb-4 inline-block font-heading">
-          Process
+        <span className="px-3.5 py-1 bg-[#9a0002]/20 text-[#efe6dd] border border-[#9a0002]/15 text-[10px] font-bold rounded-full uppercase tracking-widest mb-4 inline-block font-heading">
+          Production Steps
         </span>
         <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#9a0002] text-3xl md:text-5xl font-extrabold tracking-tight font-heading leading-tight mb-6">
-          How we'll work together
+          The Fiveters Production Method
         </h2>
         <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-2xl mx-auto font-body">
-          We follow a process that's transparent, collaborative, and results-driven—built around clear communication and creative problem-solving.
+          We treat marketing campaigns with the precision of a film set and the absolute mathematical rigor of a trading desk.
         </p>
       </div>
 

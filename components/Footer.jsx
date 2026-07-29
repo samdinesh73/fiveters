@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import RollingButton from "./RollingButton";
-
+import Link from "next/link";
+import SocialFlipButton from "./ui/social-flip-button";
 import ScrollFloat from "./ScrollFloat";
 
 export default function Footer() {
@@ -85,7 +86,7 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
-              <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all duration-200">
+              {/* <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center text-foreground/60 hover:text-foreground hover:border-foreground/30 hover:scale-105 transition-all duration-200">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
                   <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                 </svg>
@@ -113,6 +114,10 @@ export default function Footer() {
                   <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" />
                 </svg>
               </a>
+               */}
+
+              <SocialFlipButton className="p-0" />
+
             </div>
           </div>
 
@@ -124,9 +129,9 @@ export default function Footer() {
                 Company
               </h3>
               <ul className="space-y-2.5 text-sm text-white/55 font-light" style={{ fontFamily: "var(--font-body)" }}>
-                <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>About Us</a></li>
+                <li><Link href="/about" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>About Us</Link></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Career</a></li>
-                <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Case Studies</a></li>
+                <li><Link href="/#results" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Case Studies</Link></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Contact us</a></li>
               </ul>
             </div>
@@ -137,7 +142,7 @@ export default function Footer() {
                 Support
               </h3>
               <ul className="space-y-2.5 text-sm text-white/55 font-light" style={{ fontFamily: "var(--font-body)" }}>
-                <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>FAQ</a></li>
+                <li><Link href="/#faq" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>FAQ</Link></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Documentation</a></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Tutorial</a></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>404 Page</a></li>
@@ -153,8 +158,6 @@ export default function Footer() {
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200 whitespace-nowrap`}>Terms & Conditions</a></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Privacy Policy</a></li>
                 <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Refund Policy</a></li>
-                <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>GDPR Compliance</a></li>
-                <li><a href="#" className={`${theme === "light" ? "text-foreground\/70 hover:text-[#9a0002]" : "hover:text-white"}  transition duration-200`}>Affiliate Policy</a></li>
               </ul>
             </div>
           </div>
@@ -172,7 +175,6 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-6 text-xs text-[#9a0002]/40 font-light" style={{ fontFamily: "var(--font-body)" }}>
             <a href="#" className={`${theme === "light" ? "text-foreground\/70" : "text-white/40"} hover:text-white transition duration-200`}>Privacy Policy</a>
             <a href="#" className={`${theme === "light" ? "text-foreground\/70" : "text-white/40"} hover:text-white transition duration-200`}>Cookie Settings</a>
-            <a href="#" className={`${theme === "light" ? "text-foreground\/70" : "text-white/40"} hover:text-white transition duration-200`}>Terms of Service</a>
           </div>
 
           {/* Action button matching neon green accent badge */}
