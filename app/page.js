@@ -44,7 +44,7 @@ export default function Home() {
           {/* 1. Hero */}
           <Hero />
 
-          <LaserShowcase />
+          {/* <LaserShowcase /> */}
           {/* <MasonryGallery /> */}<BrandReveal />
           <FeatureGrid />
 
