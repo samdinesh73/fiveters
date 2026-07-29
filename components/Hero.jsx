@@ -95,7 +95,7 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background text-foreground" style={{ paddingTop: '80px' }}>
       {/* Video wrapper with side spacing */}
-      {/* <div className="absolute inset-0 w-full h-full" style={{ padding: `var(--space-video-y) var(--space-video-x)` }}>
+      <div className="absolute inset-0 w-full h-full" style={{ padding: `var(--space-video-y) var(--space-video-x)` }}>
         <div className="w-full h-full rounded-2xl overflow-hidden" style={{ borderRadius: 'var(--radius-video)' }}>
           <video
             className="w-full h-full object-cover"
@@ -109,29 +109,30 @@ export default function Hero() {
             Sorry, your browser doesn't support embedded videos.
           </video>
         </div>
-      </div> */}
+      </div>
 
       {/* Interactive Floating Lines Shader Layer or Mobile Static Fallback */}
       {isMounted && !isMobile ? (
-        <div
-          className="absolute inset-0 z-20 pointer-events-none"
-          style={{ padding: `var(--space-video-y) var(--space-video-x)` }}
-        >
-          <div className={`w-full h-full rounded-2xl overflow-hidden ${theme === "light" ? "" : "opacity-40"}  mix-blend-screen`} style={{ borderRadius: 'var(--radius-video)' }}>
-            <FloatingLines
-              linesGradient={['#9a0002', '#efe6dd', '#9a0002']}
-              enabledWaves={['top', 'middle', 'bottom']}
-              lineCount={[10, 15, 12]}
-              lineDistance={[8, 5, 6]}
-              bendRadius={6.0}
-              bendStrength={-1}
-              interactive={true}
-              parallax={true}
-              parallaxStrength={0.12}
-            // mixBlendMode="screen"
-            />
-          </div>
-        </div>
+        // <div
+        //   className="absolute inset-0 z-20 pointer-events-none"
+        //   style={{ padding: `var(--space-video-y) var(--space-video-x)` }}
+        // >
+        //   <div className={`w-full h-full rounded-2xl overflow-hidden ${theme === "light" ? "" : "opacity-40"}  mix-blend-screen`} style={{ borderRadius: 'var(--radius-video)' }}>
+        //     <FloatingLines
+        //       linesGradient={['#9a0002', '#efe6dd', '#9a0002']}
+        //       enabledWaves={['top', 'middle', 'bottom']}
+        //       lineCount={[10, 15, 12]}
+        //       lineDistance={[8, 5, 6]}
+        //       bendRadius={6.0}
+        //       bendStrength={-1}
+        //       interactive={true}
+        //       parallax={true}
+        //       parallaxStrength={0.12}
+        //     // mixBlendMode="screen"
+        //     />
+        //   </div>
+        // </div>
+        <></>
       ) : (
         <div
           className="absolute inset-0 z-20 pointer-events-none"
@@ -141,7 +142,8 @@ export default function Hero() {
           
            " style={{ borderRadius: 'var(--radius-video)' }} />
         </div>
-      )}
+      )
+      }
 
       {/*  */}
       {/* <div className="absolute inset-0 mix-blend-multiply" style={{ padding: `var(--space-video-y) var(--space-video-x)` }}>
@@ -225,6 +227,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
